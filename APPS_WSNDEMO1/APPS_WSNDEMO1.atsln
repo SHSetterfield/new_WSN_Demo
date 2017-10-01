@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "APPS_WSNDEMO1", "APPS_WSNDEMO1\APPS_WSNDEMO1.cproj", "{B805F3E1-8757-4C6F-8055-A0221378EFEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B805F3E1-8757-4C6F-8055-A0221378EFEF}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B805F3E1-8757-4C6F-8055-A0221378EFEF}.Debug|ARM.Build.0 = Debug|ARM
+		{B805F3E1-8757-4C6F-8055-A0221378EFEF}.Release|ARM.ActiveCfg = Release|ARM
+		{B805F3E1-8757-4C6F-8055-A0221378EFEF}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
