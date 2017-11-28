@@ -105,6 +105,7 @@
 #include "board.h"
 #include "wsndemo.h"
 
+//#include "adc.h"  //added this
 /*****************************************************************************
 *****************************************************************************/
 
@@ -177,6 +178,25 @@ void UartBytesReceived(uint16_t bytes, uint8_t *byte );
 
 /*- Implementations --------------------------------------------------------*/
 
+//Federico's added stuff for ADC read
+void Simple_Clk_Init(void);
+// Ports
+void enable_port(void);
+//EIC
+void enable_EIC_clocks(void);
+void config_EIC(void);
+Eic *portEIC = EIC;
+void battery_handler(void);
+int BatteryLife = 0x7A;
+// ADC
+void enable_adc_clocks(void);
+void init_adc(void);
+int read_adc(void);
+Adc *portADC = ADC;
+volatile int z = 0;				// variable to transfer the reading function over to another variable (resultADC)
+//volatile unsigned int resultADC = 81;
+volatile uint8_t resultADC = 81;
+// ADC From module
 #if APP_COORDINATOR
 
 /*****************************************************************************
@@ -320,20 +340,21 @@ static void appSendData(void)
 #endif
 //$$$ change this to alter data sent to network $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
   
-  //Get state of the onboard switch SW0
-  uint8_t thisData = 0x46;
+  //Get state of the on board switch SW0
+  uint8_t switchData = 0x46;
   bool pinRead;
   pinRead = port_pin_get_input_level(BUTTON_0_PIN);
   if(pinRead==false){
-	  thisData = 0x54;
+	  switchData = 0x54;
   }
   //Read and store the ADC for the temperature sensor
-  uint8_t temperatureData;
+  //uint8_t temperatureData;
   
+  resultADC = read_adc();
   
-  appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
-  appMsg.sensors.temperature =	0x54;//T for temp //rand() & 0x7f;
-  appMsg.sensors.light       =	0x4c;//L for light //rand() & 0xff;
+  appMsg.sensors.battery     =	switchData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
+  appMsg.sensors.temperature =	0x42;//resultADC;//T for temp //rand() & 0x7f;
+  appMsg.sensors.light       =	read_adc();//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
 #if APP_COORDINATOR
@@ -516,6 +537,16 @@ void wsndemo_init(void)
 	config_port_pin.direction = PORT_PIN_DIR_OUTPUT;
 	port_pin_set_config(LED_0_PIN, &config_port_pin);
 	////////////////////////////////////////////////
+	// enable the pins we use
+	enable_port();
+	
+	// ADC initialization
+	//struct adc_config config;
+	//adc_get_config_defaults(&config);
+	enable_adc_clocks();		// sets the general clock
+	init_adc();
+	
+	//EIC initialization
 	
 #if APP_ENDDEVICE
 	sm_init();
@@ -533,6 +564,114 @@ void wsndemo_init(void)
  */
 void wsndemo_task(void)
 {
+	//resultADC = read_adc();
 	SYS_TaskHandler();
 	APP_TaskHandler();
+}
+//FEDERICO'S ADDED CODE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+//added code, think about moving to main.c
+// setting up pin values to test 
+void enable_port(void){
+	
+	Port *ports = PORT;
+	// not necessary but can come in handy 
+	PortGroup *portA = &(ports->Group[0]);
+	
+	// clears pin PA06 as an input
+	// PA06 has no I2C, PA09 does but is set in the ALTERNATE on the board (may not matter)
+	portA->DIRCLR.reg = 1<<6;
+	// make PA06 owned by the adc
+	portA->PMUX[3].bit.PMUXE = 0x1;
+	portA->PINCFG[6].bit.PMUXEN = 1;
+	
+	// setting pins PA18 and PA05 as outputs
+	portA->DIRCLR.reg = 1<<5|1<<18;
+	// having PA18 and PA05 owned by the EIC
+	portA->PMUX[2].bit.PMUXO = 0x00;
+	portA->PINCFG[5].bit.PMUXEN = 1;
+	portA->PMUX[9].bit.PMUXE = 0x00;
+	portA->PINCFG[18].bit.PMUXEN = 1;
+	
+	// setting pin PA18 as an output, could connect to the pi, think about it later 
+	// need to check if its configurable with the adc (its not)
+	// PA18 EIC - EXTINT[2], SERCOM - SERCOM1/PAD[2], NO I2C
+	// PA13		- EXTINT[13],		- SERCOM2/PAD[1], HAS I2C	(may not matter which pin)
+	// sets pins as output to send the data
+	//portA->DIRSET.reg = 1<<18|1<<13;
+	
+	// this is only necessary is the input is by a button
+	// portA->PINCFG[6].reg = PORT_PINCFG_INEN | PORT_PINCFG_PULLEN;
+}
+/*
+void enable_EIC_clocks(void){
+	PM->APBAMASK.reg |= 0x1 << 6; // PM_APBAMASK for EIC is in 6th bit
+	uint32_t temp= 0x03;		// ID for EIC
+	temp |= 0<<8;         			//  Selection Generic clock generator 0
+	GCLK->CLKCTRL.reg=temp;   		//  Setup in the CLKCTRL register
+	GCLK->CLKCTRL.reg |= 0x1u << 14;
+}
+*/
+void config_EIC(void){
+	// disable EIC
+	portEIC->CTRL.reg = 0x00;
+	
+	portEIC->EVCTRL.reg = 1<<5|1<<2;	// PA05 and PA18
+	portEIC->WAKEUP.reg = 1<<5|1<<2;
+	portEIC->CONFIG[0].bit.SENSE5 = 0x4;
+	portEIC->INTENSET.reg = 1<<5|1<<2;
+	
+	portEIC->CTRL.reg = 0x02;
+}
+
+void battery_handler(void){
+	
+	Port *ports = PORT;
+	PortGroup *portA = &(ports->Group[0]);
+	
+	if(portA->IN.reg & 1<<18){
+		BatteryLife = BatteryLife + 0x01;
+	}
+	else{
+		BatteryLife = BatteryLife - 0x01;
+	}
+	portEIC->INTFLAG.reg = 1<<5;
+}
+
+
+void enable_adc_clocks(void){
+	
+	PM->APBCMASK.reg |= 01u<<16; // PM_APBCMASK for ADC is located at the 16th bit
+	uint32_t temp = 0x1e;
+	temp |= 0<<8;
+	GCLK->CLKCTRL.reg = temp;
+	GCLK->CLKCTRL.reg |= 0x1u<<14;
+}
+
+void init_adc(void){
+	
+	portADC->CTRLA.reg = 0<<1;
+	
+	// unsure which values to choose here, so i had some values from EE138Lab5 to act as dummy values
+	portADC->REFCTRL.reg = 0x02;
+	portADC->AVGCTRL.reg = 0x44;	// adjusting the ADJRES and the SAMPLENUM
+	portADC->SAMPCTRL.reg = 0;		// need to look more into this value, but will be set to 0 for now
+	portADC->CTRLB.bit.PRESCALER = 0x7;	// peripheral clock divided by 512 for now
+	portADC->CTRLB.bit.RESSEL = 0x1;	// resolution is set to 16bits
+	portADC->INPUTCTRL.bit.GAIN = 0xF;	// gain is 1/2 
+	portADC->INPUTCTRL.bit.MUXNEG = 0x19;	// 0x19 is the I/O ground
+	portADC->INPUTCTRL.bit.MUXPOS = 0x06;	// 0x06 is PA06 which is set to be owned by the ADC
+	
+	portADC->CTRLA.reg = 1<<1;
+}
+int read_adc(void)  //program gets stuck in here as of 2:16pm 11.28.17
+{
+
+	// start the conversion
+	portADC->SWTRIG.bit.START = 1;
+	portADC->INTFLAG.reg = 0x01;
+	while((portADC->INTFLAG.bit.RESRDY));  //see if this while loop is what's causing us to get stuck
+	//wait for conversion to be available
+	z = portADC->RESULT.reg;
+	return(z); 					//insert register where ADC store value
 }

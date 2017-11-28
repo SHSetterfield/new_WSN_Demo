@@ -5731,6 +5731,13 @@ Discarded input sections
  .text          0x00000000        0x0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .data          0x00000000        0x0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .bss           0x00000000        0x0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .text.config_EIC
+                0x00000000       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .text.battery_handler
+                0x00000000       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .data.BatteryLife
+                0x00000000        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .data.portEIC  0x00000000        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .bss.cpu_irq_critical_section_counter
                 0x00000000        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .bss.cpu_irq_prev_interrupt_state
@@ -9796,7 +9803,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
 LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
                 0x00002000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x2000
 
-.text           0x00000000     0x606c
+.text           0x00000000     0x61a4
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _sfixed = .
  *(.vectors .vectors.*)
@@ -10072,498 +10079,511 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
  .text.UartBytesReceived
                 0x000028dc       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
                 0x000028dc                UartBytesReceived
+ .text.enable_port
+                0x00002900       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x00002900                enable_port
+ .text.enable_adc_clocks
+                0x00002950       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x00002950                enable_adc_clocks
+ .text.init_adc
+                0x00002978       0x64 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x00002978                init_adc
  .text.wsndemo_init
-                0x00002900       0x38 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
-                0x00002900                wsndemo_init
+                0x000029dc       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x000029dc                wsndemo_init
+ .text.read_adc
+                0x00002a2c       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x00002a2c                read_adc
  .text.wsndemo_task
-                0x00002938      0x1cc src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
-                0x00002938                wsndemo_task
+                0x00002a58      0x1e0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x00002a58                wsndemo_task
  .text.NWK_Init
-                0x00002b04       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002b04                NWK_Init
+                0x00002c38       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002c38                NWK_Init
  .text.NWK_SetAddr
-                0x00002b60       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002b60                NWK_SetAddr
+                0x00002c94       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002c94                NWK_SetAddr
  .text.NWK_SetPanId
-                0x00002b74       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002b74                NWK_SetPanId
+                0x00002ca8       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002ca8                NWK_SetPanId
  .text.NWK_OpenEndpoint
-                0x00002b88       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002b88                NWK_OpenEndpoint
+                0x00002cbc       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002cbc                NWK_OpenEndpoint
  .text.NWK_Lock
-                0x00002b98       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002b98                NWK_Lock
+                0x00002ccc       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002ccc                NWK_Lock
  .text.NWK_Unlock
-                0x00002ba8       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002ba8                NWK_Unlock
+                0x00002cdc       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002cdc                NWK_Unlock
  .text.NWK_TaskHandler
-                0x00002bb8       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x00002bb8                NWK_TaskHandler
+                0x00002cec       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x00002cec                NWK_TaskHandler
  .text.nwkDataReqTxConf
-                0x00002bdc       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+                0x00002d10       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
  .text.nwkDataReqInit
-                0x00002c1c        0xc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
-                0x00002c1c                nwkDataReqInit
+                0x00002d50        0xc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+                0x00002d50                nwkDataReqInit
  .text.NWK_DataReq
-                0x00002c28       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
-                0x00002c28                NWK_DataReq
+                0x00002d5c       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+                0x00002d5c                NWK_DataReq
  .text.nwkDataReqTaskHandler
-                0x00002c5c      0x144 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
-                0x00002c5c                nwkDataReqTaskHandler
+                0x00002d90      0x144 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+                0x00002d90                nwkDataReqTaskHandler
  .text.nwkFrameInit
-                0x00002da0       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
-                0x00002da0                nwkFrameInit
+                0x00002ed4       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x00002ed4                nwkFrameInit
  .text.nwkFrameAlloc
-                0x00002dbc       0x70 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
-                0x00002dbc                nwkFrameAlloc
+                0x00002ef0       0x70 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x00002ef0                nwkFrameAlloc
  .text.nwkFrameFree
-                0x00002e2c       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
-                0x00002e2c                nwkFrameFree
+                0x00002f60       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x00002f60                nwkFrameFree
  .text.nwkFrameNext
-                0x00002e40       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
-                0x00002e40                nwkFrameNext
+                0x00002f74       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x00002f74                nwkFrameNext
  .text.nwkFrameCommandInit
-                0x00002e80       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
-                0x00002e80                nwkFrameCommandInit
+                0x00002fb4       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x00002fb4                nwkFrameCommandInit
  .text.nwkRouteInit
-                0x00002ea0       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002ea0                nwkRouteInit
+                0x00002fd4       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00002fd4                nwkRouteInit
  .text.NWK_RouteFindEntry
-                0x00002ecc       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002ecc                NWK_RouteFindEntry
+                0x00003000       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00003000                NWK_RouteFindEntry
  .text.NWK_RouteNewEntry
-                0x00002f00       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002f00                NWK_RouteNewEntry
+                0x00003034       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00003034                NWK_RouteNewEntry
  .text.NWK_RouteFreeEntry
-                0x00002f4c       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002f4c                NWK_RouteFreeEntry
+                0x00003080       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00003080                NWK_RouteFreeEntry
  .text.NWK_RouteNextHop
-                0x00002f60       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002f60                NWK_RouteNextHop
+                0x00003094       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00003094                NWK_RouteNextHop
  .text.nwkRouteUpdateEntry
-                0x00002f7c       0x44 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002f7c                nwkRouteUpdateEntry
+                0x000030b0       0x44 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x000030b0                nwkRouteUpdateEntry
  .text.nwkRouteRemove
-                0x00002fc0       0x18 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002fc0                nwkRouteRemove
+                0x000030f4       0x18 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x000030f4                nwkRouteRemove
  .text.nwkRouteFrameReceived
-                0x00002fd8        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002fd8                nwkRouteFrameReceived
+                0x0000310c        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x0000310c                nwkRouteFrameReceived
  .text.nwkRouteFrameSent
-                0x00002fdc       0x90 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00002fdc                nwkRouteFrameSent
+                0x00003110       0x90 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00003110                nwkRouteFrameSent
  .text.nwkRoutePrepareTx
-                0x0000306c       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x0000306c                nwkRoutePrepareTx
+                0x000031a0       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x000031a0                nwkRoutePrepareTx
  .text.nwkRouteFrame
-                0x000030c0       0xd4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x000030c0                nwkRouteFrame
+                0x000031f4       0xd4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x000031f4                nwkRouteFrame
  .text.nwkRouteErrorReceived
-                0x00003194       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
-                0x00003194                nwkRouteErrorReceived
+                0x000032c8       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x000032c8                nwkRouteErrorReceived
  .text.nwkRouteDiscoveryFindEntry
-                0x000031b8       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x000032ec       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .text.nwkRouteDiscoveryNewEntry
-                0x000031f4       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x00003328       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .text.nwkRouteDiscoveryTimerHandler
-                0x00003248       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x0000337c       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .text.nwkRouteDiscoverySendRequest
-                0x00003308       0x8c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x0000343c       0x8c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .text.nwkRouteDiscoverySendReply
-                0x00003394       0x88 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x000034c8       0x88 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .text.nwkRouteDiscoveryInit
-                0x0000341c       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
-                0x0000341c                nwkRouteDiscoveryInit
+                0x00003550       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x00003550                nwkRouteDiscoveryInit
  .text.nwkRouteDiscoveryRequest
-                0x00003448       0x78 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
-                0x00003448                nwkRouteDiscoveryRequest
+                0x0000357c       0x78 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x0000357c                nwkRouteDiscoveryRequest
  .text.nwkRouteDiscoveryRequestReceived
-                0x000034c0      0x104 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
-                0x000034c0                nwkRouteDiscoveryRequestReceived
+                0x000035f4      0x104 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x000035f4                nwkRouteDiscoveryRequestReceived
  .text.nwkRouteDiscoveryReplyReceived
-                0x000035c4       0xa8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
-                0x000035c4                nwkRouteDiscoveryReplyReceived
+                0x000036f8       0xa8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x000036f8                nwkRouteDiscoveryReplyReceived
  .text.nwkRxSeriveDataInd
-                0x0000366c       0x58 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x000037a0       0x58 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
  .text.nwkRxDuplicateRejectionTimerHandler
-                0x000036c4       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x000037f8       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
  .text.nwkRxInit
-                0x000036f8       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
-                0x000036f8                nwkRxInit
+                0x0000382c       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x0000382c                nwkRxInit
  .text.PHY_DataInd
-                0x00003738       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
-                0x00003738                PHY_DataInd
+                0x0000386c       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x0000386c                PHY_DataInd
  .text.NWK_SetAckControl
-                0x00003784        0xc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
-                0x00003784                NWK_SetAckControl
+                0x000038b8        0xc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x000038b8                NWK_SetAckControl
  .text.nwkRxDecryptConf
-                0x00003790       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
-                0x00003790                nwkRxDecryptConf
+                0x000038c4       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x000038c4                nwkRxDecryptConf
  .text.nwkRxTaskHandler
-                0x000037a0      0x3d0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
-                0x000037a0                nwkRxTaskHandler
+                0x000038d4      0x3d0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x000038d4                nwkRxTaskHandler
  .text.nwkSecurityInit
-                0x00003b70       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
-                0x00003b70                nwkSecurityInit
+                0x00003ca4       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x00003ca4                nwkSecurityInit
  .text.NWK_SetSecurityKey
-                0x00003b84       0x18 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
-                0x00003b84                NWK_SetSecurityKey
+                0x00003cb8       0x18 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x00003cb8                NWK_SetSecurityKey
  .text.nwkSecurityProcess
-                0x00003b9c       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
-                0x00003b9c                nwkSecurityProcess
+                0x00003cd0       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x00003cd0                nwkSecurityProcess
  .text.SYS_EncryptConf
-                0x00003bb8       0xac src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
-                0x00003bb8                SYS_EncryptConf
+                0x00003cec       0xac src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x00003cec                SYS_EncryptConf
  .text.nwkSecurityTaskHandler
-                0x00003c64      0x190 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
-                0x00003c64                nwkSecurityTaskHandler
+                0x00003d98      0x190 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x00003d98                nwkSecurityTaskHandler
  .text.nwkTxDelayTimerHandler
-                0x00003df4       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x00003f28       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .text.nwkTxAckWaitTimerHandler
-                0x00003e48       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x00003f7c       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .text.nwkTxInit
-                0x00003ea4       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x00003ea4                nwkTxInit
+                0x00003fd8       0x34 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x00003fd8                nwkTxInit
  .text.nwkTxFrame
-                0x00003ed8       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x00003ed8                nwkTxFrame
+                0x0000400c       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x0000400c                nwkTxFrame
  .text.nwkTxBroadcastFrame
-                0x00003f98       0x8c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x00003f98                nwkTxBroadcastFrame
+                0x000040cc       0x8c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x000040cc                nwkTxBroadcastFrame
  .text.nwkTxAckReceived
-                0x00004024       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x00004024                nwkTxAckReceived
+                0x00004158       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x00004158                nwkTxAckReceived
  .text.nwkTxConfirm
-                0x00004060        0xc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x00004060                nwkTxConfirm
+                0x00004194        0xc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x00004194                nwkTxConfirm
  .text.nwkTxEncryptConf
-                0x0000406c        0x8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x0000406c                nwkTxEncryptConf
+                0x000041a0        0x8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x000041a0                nwkTxEncryptConf
  .text.PHY_DataConf
-                0x00004074       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x00004074                PHY_DataConf
+                0x000041a8       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x000041a8                PHY_DataConf
  .text.nwkTxTaskHandler
-                0x000040b4      0x110 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
-                0x000040b4                nwkTxTaskHandler
+                0x000041e8      0x110 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x000041e8                nwkTxTaskHandler
  .text.phyTrxSetState
-                0x000041c4       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x000042f8       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
  .text.phySetRxState
-                0x00004200       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x00004334       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
  .text.PHY_Init
-                0x0000422c       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x0000422c                PHY_Init
+                0x00004360       0x54 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x00004360                PHY_Init
  .text.PHY_SetRxState
-                0x00004280       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x00004280                PHY_SetRxState
+                0x000043b4       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x000043b4                PHY_SetRxState
  .text.PHY_SetChannel
-                0x00004294       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x00004294                PHY_SetChannel
+                0x000043c8       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x000043c8                PHY_SetChannel
  .text.PHY_SetPanId
-                0x000042b8       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x000042b8                PHY_SetPanId
+                0x000043ec       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x000043ec                PHY_SetPanId
  .text.PHY_SetShortAddr
-                0x000042d8       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x000042d8                PHY_SetShortAddr
+                0x0000440c       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x0000440c                PHY_SetShortAddr
  .text.PHY_DataReq
-                0x00004304       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x00004304                PHY_DataReq
+                0x00004438       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x00004438                PHY_DataReq
  .text.PHY_RandomReq
-                0x00004350       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x00004350                PHY_RandomReq
+                0x00004484       0x4c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x00004484                PHY_RandomReq
  .text.PHY_EncryptReq
-                0x0000439c       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x0000439c                PHY_EncryptReq
+                0x000044d0       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x000044d0                PHY_EncryptReq
  .text.PHY_TaskHandler
-                0x000043c8       0xbc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
-                0x000043c8                PHY_TaskHandler
+                0x000044fc       0xbc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x000044fc                PHY_TaskHandler
  .text.SYS_Init
-                0x00004484       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
-                0x00004484                SYS_Init
+                0x000045b8       0x24 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+                0x000045b8                SYS_Init
  .text.SYS_TaskHandler
-                0x000044a8       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
-                0x000044a8                SYS_TaskHandler
+                0x000045dc       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+                0x000045dc                SYS_TaskHandler
  .text.SYS_EncryptReq
-                0x000044c4       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
-                0x000044c4                SYS_EncryptReq
+                0x000045f8       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+                0x000045f8                SYS_EncryptReq
  .text.placeTimer
-                0x000044d8       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x0000460c       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
  .text.SYS_HwExpiry_Cb
-                0x00004534       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x00004534                SYS_HwExpiry_Cb
+                0x00004668       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x00004668                SYS_HwExpiry_Cb
  .text.SYS_TimerInit
-                0x00004554       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x00004554                SYS_TimerInit
+                0x00004688       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x00004688                SYS_TimerInit
  .text.SYS_TimerStop
-                0x00004590       0x48 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x00004590                SYS_TimerStop
+                0x000046c4       0x48 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x000046c4                SYS_TimerStop
  .text.SYS_TimerStarted
-                0x000045d8       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x000045d8                SYS_TimerStarted
+                0x0000470c       0x2c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x0000470c                SYS_TimerStarted
  .text.SYS_TimerStart
-                0x00004604       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x00004604                SYS_TimerStart
+                0x00004738       0x1c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x00004738                SYS_TimerStart
  .text.SYS_TimerTaskHandler
-                0x00004620       0x7c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x00004620                SYS_TimerTaskHandler
+                0x00004754       0x7c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x00004754                SYS_TimerTaskHandler
  .text.tc_cca_callback
-                0x0000469c        0xc src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x000047d0        0xc src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
  .text.tc_ovf_callback
-                0x000046a8        0xc src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x000047dc        0xc src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
  .text.tmr_read_count
-                0x000046b4       0x14 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
-                0x000046b4                tmr_read_count
+                0x000047e8       0x14 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x000047e8                tmr_read_count
  .text.tmr_disable_cc_interrupt
-                0x000046c8       0x14 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
-                0x000046c8                tmr_disable_cc_interrupt
+                0x000047fc       0x14 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x000047fc                tmr_disable_cc_interrupt
  .text.tmr_enable_cc_interrupt
-                0x000046dc       0x3c src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
-                0x000046dc                tmr_enable_cc_interrupt
+                0x00004810       0x3c src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x00004810                tmr_enable_cc_interrupt
  .text.tmr_write_cmpreg
-                0x00004718       0x18 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
-                0x00004718                tmr_write_cmpreg
+                0x0000484c       0x18 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x0000484c                tmr_write_cmpreg
  .text.tmr_init
-                0x00004730       0xf4 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
-                0x00004730                tmr_init
+                0x00004864       0xf4 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x00004864                tmr_init
  .text.sal_init
-                0x00004824        0x4 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
-                0x00004824                sal_init
+                0x00004958        0x4 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+                0x00004958                sal_init
  .text.sal_aes_wrrd
-                0x00004828       0x6c src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
-                0x00004828                sal_aes_wrrd
+                0x0000495c       0x6c src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+                0x0000495c                sal_aes_wrrd
  .text.sal_aes_setup
-                0x00004894      0x138 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
-                0x00004894                sal_aes_setup
+                0x000049c8      0x138 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+                0x000049c8                sal_aes_setup
  .text.sal_aes_read
-                0x000049cc       0x14 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
-                0x000049cc                sal_aes_read
+                0x00004b00       0x14 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+                0x00004b00                sal_aes_read
  .text.AT86RFX_ISR
-                0x000049e0       0x1c src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x000049e0                AT86RFX_ISR
+                0x00004b14       0x1c src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004b14                AT86RFX_ISR
  .text.trx_spi_init
-                0x000049fc      0x110 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x000049fc                trx_spi_init
+                0x00004b30      0x110 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004b30                trx_spi_init
  .text.PhyReset
-                0x00004b0c       0x30 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x00004b0c                PhyReset
+                0x00004c40       0x30 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004c40                PhyReset
  .text.trx_reg_read
-                0x00004b3c       0xf8 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x00004b3c                trx_reg_read
+                0x00004c70       0xf8 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004c70                trx_reg_read
  .text.trx_reg_write
-                0x00004c34       0xfc src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x00004c34                trx_reg_write
+                0x00004d68       0xfc src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004d68                trx_reg_write
  .text.trx_frame_read
-                0x00004d30      0x140 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x00004d30                trx_frame_read
+                0x00004e64      0x140 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004e64                trx_frame_read
  .text.trx_frame_write
-                0x00004e70      0x124 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x00004e70                trx_frame_write
+                0x00004fa4      0x124 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00004fa4                trx_frame_write
  .text.trx_sram_write
-                0x00004f94      0x178 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x00004f94                trx_sram_write
+                0x000050c8      0x178 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x000050c8                trx_sram_write
  .text.trx_sram_read
-                0x0000510c      0x19c src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x0000510c                trx_sram_read
+                0x00005240      0x19c src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00005240                trx_sram_read
  .text.trx_aes_wrrd
-                0x000052a8      0x240 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x000052a8                trx_aes_wrrd
- .text.main     0x000054e8       0x34 src/main.o
-                0x000054e8                main
+                0x000053dc      0x240 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x000053dc                trx_aes_wrrd
+ .text.main     0x0000561c       0x34 src/main.o
+                0x0000561c                main
  .text.common_tc_delay
-                0x0000551c       0x6c ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
-                0x0000551c                common_tc_delay
+                0x00005650       0x6c ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x00005650                common_tc_delay
  .text.common_tc_init
-                0x00005588       0x20 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
-                0x00005588                common_tc_init
+                0x000056bc       0x20 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x000056bc                common_tc_init
  .text.tmr_ovf_callback
-                0x000055a8       0x48 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
-                0x000055a8                tmr_ovf_callback
+                0x000056dc       0x48 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x000056dc                tmr_ovf_callback
  .text.tmr_cca_callback
-                0x000055f0       0x1c ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
-                0x000055f0                tmr_cca_callback
+                0x00005724       0x1c ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x00005724                tmr_cca_callback
  .text.set_common_tc_expiry_callback
-                0x0000560c        0xc ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
-                0x0000560c                set_common_tc_expiry_callback
- .text          0x00005618       0x9c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
-                0x00005618                __aeabi_uidiv
-                0x00005618                __udivsi3
-                0x000056a0                __aeabi_uidivmod
- .text          0x000056b4        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x000056b4                __aeabi_idiv0
-                0x000056b4                __aeabi_ldiv0
- .text          0x000056b8       0x44 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
-                0x000056b8                __muldi3
-                0x000056b8                __aeabi_lmul
+                0x00005740        0xc ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x00005740                set_common_tc_expiry_callback
+ .text          0x0000574c       0x9c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+                0x0000574c                __aeabi_uidiv
+                0x0000574c                __udivsi3
+                0x000057d4                __aeabi_uidivmod
+ .text          0x000057e8        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x000057e8                __aeabi_idiv0
+                0x000057e8                __aeabi_ldiv0
+ .text          0x000057ec       0x44 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
+                0x000057ec                __muldi3
+                0x000057ec                __aeabi_lmul
  .text.__libc_init_array
-                0x000056fc       0x4c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
-                0x000056fc                __libc_init_array
- .text.memcpy   0x00005748       0x12 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy-stub.o)
-                0x00005748                memcpy
- .text.memset   0x0000575a       0x10 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
-                0x0000575a                memset
- *fill*         0x0000576a        0x2 
- .text.srand    0x0000576c       0x5c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
-                0x0000576c                srand
- .text.rand     0x000057c8       0x78 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
-                0x000057c8                rand
- .text.setbuf   0x00005840       0x12 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setbuf.o)
-                0x00005840                setbuf
- *fill*         0x00005852        0x2 
- .text.setvbuf  0x00005854      0x10c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setvbuf.o)
-                0x00005854                setvbuf
+                0x00005830       0x4c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+                0x00005830                __libc_init_array
+ .text.memcpy   0x0000587c       0x12 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy-stub.o)
+                0x0000587c                memcpy
+ .text.memset   0x0000588e       0x10 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+                0x0000588e                memset
+ *fill*         0x0000589e        0x2 
+ .text.srand    0x000058a0       0x5c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
+                0x000058a0                srand
+ *fill*         0x000058fc        0x4 
+ .text.rand     0x00005900       0x78 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
+                0x00005900                rand
+ .text.setbuf   0x00005978       0x12 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setbuf.o)
+                0x00005978                setbuf
+ *fill*         0x0000598a        0x2 
+ .text.setvbuf  0x0000598c      0x10c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setvbuf.o)
+                0x0000598c                setvbuf
  .text.__sflush_r
-                0x00005960      0x112 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fflush.o)
-                0x00005960                __sflush_r
- *fill*         0x00005a72        0x2 
+                0x00005a98      0x112 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fflush.o)
+                0x00005a98                __sflush_r
+ *fill*         0x00005baa        0x2 
  .text._fflush_r
-                0x00005a74       0x58 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fflush.o)
-                0x00005a74                _fflush_r
+                0x00005bac       0x58 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fflush.o)
+                0x00005bac                _fflush_r
  .text._cleanup_r
-                0x00005acc       0x34 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x00005acc                _cleanup_r
+                0x00005c04       0x34 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00005c04                _cleanup_r
  .text.std.isra.0
-                0x00005b00       0x48 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00005c38       0x48 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
  .text.__sfmoreglue
-                0x00005b48       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x00005b48                __sfmoreglue
- .text.__sinit  0x00005b74       0x64 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x00005b74                __sinit
- .text.__sfp    0x00005bd8       0x7c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x00005bd8                __sfp
- .text.malloc   0x00005c54       0x14 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-malloc.o)
-                0x00005c54                malloc
- .text._free_r  0x00005c68       0x90 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-freer.o)
-                0x00005c68                _free_r
+                0x00005c80       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00005c80                __sfmoreglue
+ .text.__sinit  0x00005cac       0x64 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00005cac                __sinit
+ .text.__sfp    0x00005d10       0x7c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00005d10                __sfp
+ .text.malloc   0x00005d8c       0x14 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-malloc.o)
+                0x00005d8c                malloc
+ .text._free_r  0x00005da0       0x90 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-freer.o)
+                0x00005da0                _free_r
  .text._malloc_r
-                0x00005cf8       0xa8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
-                0x00005cf8                _malloc_r
- .text._sbrk_r  0x00005da0       0x24 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-sbrkr.o)
-                0x00005da0                _sbrk_r
- .text.__sread  0x00005dc4       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
-                0x00005dc4                __sread
+                0x00005e30       0xa8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
+                0x00005e30                _malloc_r
+ .text._sbrk_r  0x00005ed8       0x24 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-sbrkr.o)
+                0x00005ed8                _sbrk_r
+ .text.__sread  0x00005efc       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
+                0x00005efc                __sread
  .text.__swrite
-                0x00005dec       0x38 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
-                0x00005dec                __swrite
- .text.__sseek  0x00005e24       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
-                0x00005e24                __sseek
+                0x00005f24       0x38 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
+                0x00005f24                __swrite
+ .text.__sseek  0x00005f5c       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
+                0x00005f5c                __sseek
  .text.__sclose
-                0x00005e50        0xc c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
-                0x00005e50                __sclose
+                0x00005f88        0xc c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
+                0x00005f88                __sclose
  .text._write_r
-                0x00005e5c       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-writer.o)
-                0x00005e5c                _write_r
+                0x00005f94       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-writer.o)
+                0x00005f94                _write_r
  .text._close_r
-                0x00005e84       0x24 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-closer.o)
-                0x00005e84                _close_r
+                0x00005fbc       0x24 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-closer.o)
+                0x00005fbc                _close_r
  .text._lseek_r
-                0x00005ea8       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-lseekr.o)
-                0x00005ea8                _lseek_r
- .text._read_r  0x00005ed0       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-readr.o)
-                0x00005ed0                _read_r
+                0x00005fe0       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-lseekr.o)
+                0x00005fe0                _lseek_r
+ .text._read_r  0x00006008       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-readr.o)
+                0x00006008                _read_r
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
- .rodata        0x00005ef8       0x18 src/ASF/sam0/drivers/sercom/sercom.o
- .rodata        0x00005f10        0x8 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .rodata        0x00006030       0x18 src/ASF/sam0/drivers/sercom/sercom.o
+ .rodata        0x00006048        0x8 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
  .rodata.system_clock_source_get_hz
-                0x00005f18       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
+                0x00006050       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
  .rodata.system_clock_source_enable
-                0x00005f3c       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
- .rodata        0x00005f60       0x18 src/ASF/sam0/drivers/tc/tc_sam_d_r/tc.o
+                0x00006074       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
+ .rodata        0x00006098       0x18 src/ASF/sam0/drivers/tc/tc_sam_d_r/tc.o
  .rodata.APP_CommandsByteReceived
-                0x00005f78       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+                0x000060b0       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .rodata.str1.4
-                0x00005f8c       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x000060c4       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .rodata.nwkRxTaskHandler
-                0x00005fac       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x000060e4       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
  .rodata.nwkTxTaskHandler
-                0x00005fc0       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x000060f8       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .rodata.tc_interrupt_vectors.11765
-                0x00005fe0        0x4 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x00006118        0x4 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
  .rodata.str1.1
-                0x00005fe4        0x2 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
- *fill*         0x00005fe6        0x2 
+                0x0000611c        0x2 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+ *fill*         0x0000611e        0x2 
  .rodata._global_impure_ptr
-                0x00005fe8        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
-                0x00005fe8                _global_impure_ptr
+                0x00006120        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+                0x00006120                _global_impure_ptr
  .rodata.__sf_fake_stdin
-                0x00005fec       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x00005fec                __sf_fake_stdin
+                0x00006124       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00006124                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0000600c       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x0000600c                __sf_fake_stdout
+                0x00006144       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00006144                __sf_fake_stdout
  .rodata.__sf_fake_stderr
-                0x0000602c       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
-                0x0000602c                __sf_fake_stderr
+                0x00006164       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+                0x00006164                __sf_fake_stderr
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000604c                . = ALIGN (0x4)
+                0x00006184                . = ALIGN (0x4)
  *(.init)
- .init          0x0000604c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x0000604c                _init
- .init          0x00006050        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
-                0x00006058                . = ALIGN (0x4)
-                0x00006058                __preinit_array_start = .
+ .init          0x00006184        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x00006184                _init
+ .init          0x00006188        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x00006190                . = ALIGN (0x4)
+                0x00006190                __preinit_array_start = .
  *(.preinit_array)
-                0x00006058                __preinit_array_end = .
-                0x00006058                . = ALIGN (0x4)
-                0x00006058                __init_array_start = .
+                0x00006190                __preinit_array_end = .
+                0x00006190                . = ALIGN (0x4)
+                0x00006190                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00006058        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
-                0x0000605c                __init_array_end = .
-                0x0000605c                . = ALIGN (0x4)
+ .init_array    0x00006190        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+                0x00006194                __init_array_end = .
+                0x00006194                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x0000605c                . = ALIGN (0x4)
+                0x00006194                . = ALIGN (0x4)
  *(.fini)
- .fini          0x0000605c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x0000605c                _fini
- .fini          0x00006060        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
-                0x00006068                . = ALIGN (0x4)
-                0x00006068                __fini_array_start = .
+ .fini          0x00006194        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x00006194                _fini
+ .fini          0x00006198        0x8 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+                0x000061a0                . = ALIGN (0x4)
+                0x000061a0                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00006068        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .fini_array    0x000061a0        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x0000606c                __fini_array_end = .
+                0x000061a4                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x0000606c                . = ALIGN (0x4)
-                0x0000606c                _efixed = .
-                0x0000606c                PROVIDE (__exidx_start, .)
+                0x000061a4                . = ALIGN (0x4)
+                0x000061a4                _efixed = .
+                0x000061a4                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x0000606c        0x0
+.vfp11_veneer   0x000061a4        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0000606c        0x0
+.v4_bx          0x000061a4        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x0000606c        0x0
+.iplt           0x000061a4        0x0
  .iplt          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.eh_frame       0x0000606c        0x0
- .eh_frame      0x0000606c        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+.eh_frame       0x000061a4        0x0
+ .eh_frame      0x000061a4        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.rel.dyn        0x0000606c        0x0
+.rel.dyn        0x000061a4        0x0
  .rel.iplt      0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.jcr            0x0000606c        0x0
- .jcr           0x0000606c        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+.jcr            0x000061a4        0x0
+ .jcr           0x000061a4        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.igot.plt       0x0000606c        0x0
+.igot.plt       0x000061a4        0x0
  .igot.plt      0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000606c                PROVIDE (__exidx_end, .)
-                0x0000606c                . = ALIGN (0x4)
-                0x0000606c                _etext = .
+                0x000061a4                PROVIDE (__exidx_end, .)
+                0x000061a4                . = ALIGN (0x4)
+                0x000061a4                _etext = .
 
-.relocate       0x20000000       0x70 load address 0x0000606c
+.relocate       0x20000000       0x78 load address 0x000061a4
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -10575,188 +10595,197 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gn
  .data.g_interrupt_enabled
                 0x20000008        0x1 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
                 0x20000008                g_interrupt_enabled
- .data.last_dir
-                0x20000009        0x1 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .data.resultADC
+                0x20000009        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x20000009                resultADC
  *fill*         0x2000000a        0x2 
+ .data.portADC  0x2000000c        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x2000000c                portADC
+ .data.last_dir
+                0x20000010        0x1 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ *fill*         0x20000011        0x3 
  .data.impure_data
-                0x2000000c       0x60 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+                0x20000014       0x60 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
  .data._impure_ptr
-                0x2000006c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
-                0x2000006c                _impure_ptr
-                0x20000070                . = ALIGN (0x4)
-                0x20000070                _erelocate = .
+                0x20000074        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-impure.o)
+                0x20000074                _impure_ptr
+                0x20000078                . = ALIGN (0x4)
+                0x20000078                _erelocate = .
 
-.bss            0x20000070      0xf18 load address 0x000060dc
-                0x20000070                . = ALIGN (0x4)
-                0x20000070                _sbss = .
-                0x20000070                _szero = .
+.bss            0x20000078      0xf1c load address 0x0000621c
+                0x20000078                . = ALIGN (0x4)
+                0x20000078                _sbss = .
+                0x20000078                _szero = .
  *(.bss .bss.*)
- .bss           0x20000070       0x1c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .bss           0x20000078       0x1c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
  .bss.cpu_irq_critical_section_counter
-                0x2000008c        0x4 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+                0x20000094        0x4 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .bss.cpu_irq_prev_interrupt_state
-                0x20000090        0x1 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- *fill*         0x20000091        0x3 
- .bss._sercom_config
-                0x20000094        0x4 src/ASF/sam0/drivers/sercom/sercom.o
- .bss._handler_table_initialized
-                0x20000098        0x1 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x20000098        0x1 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  *fill*         0x20000099        0x3 
+ .bss._sercom_config
+                0x2000009c        0x4 src/ASF/sam0/drivers/sercom/sercom.o
+ .bss._handler_table_initialized
+                0x200000a0        0x1 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ *fill*         0x200000a1        0x3 
  .bss._sercom_interrupt_handlers
-                0x2000009c       0x18 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x200000a4       0x18 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
  .bss._system_clock_inst
-                0x200000b4       0x18 src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
+                0x200000bc       0x18 src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
  .bss.heap.5097
-                0x200000cc        0x4 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
+                0x200000d4        0x4 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .bss.serial_rx_buf_head
-                0x200000d0        0x1 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
- *fill*         0x200000d1        0x3 
+                0x200000d8        0x1 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
+ *fill*         0x200000d9        0x3 
  .bss.serial_rx_buf
-                0x200000d4       0x9c src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
+                0x200000dc       0x9c src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .bss.host_uart_module
-                0x20000170       0x34 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
+                0x20000178       0x34 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .bss.serial_rx_buf_tail
-                0x200001a4        0x1 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
+                0x200001ac        0x1 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .bss.serial_rx_count
-                0x200001a5        0x1 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
+                0x200001ad        0x1 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .bss.appCmdUartPtr
-                0x200001a6        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- *fill*         0x200001a7        0x1 
+                0x200001ae        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+ *fill*         0x200001af        0x1 
  .bss.appCmdInProgress
-                0x200001a8        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+                0x200001b0        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .bss.appCmdUartCsum
-                0x200001ac        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- *fill*         0x200001ad        0x3 
+                0x200001b4        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+ *fill*         0x200001b5        0x3 
  .bss.appCmdIdentifyDurationTimer
-                0x200001b0       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+                0x200001b8       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .bss.appCmdUartBuf
-                0x200001c4       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+                0x200001cc       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .bss.appCmdDataReq
-                0x200001d4       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+                0x200001dc       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .bss.appCmdIdentifyPeriodTimer
-                0x200001f4       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+                0x200001fc       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .bss.appCmdUartState
-                0x20000208        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- *fill*         0x20000209        0x3 
+                0x20000210        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+ *fill*         0x20000211        0x3 
  .bss.appCmdPendingTable
-                0x2000020c       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .bss.rx_data   0x2000023c       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .bss.appState  0x20000250        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- *fill*         0x20000251        0x3 
+                0x20000214       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+ .bss.rx_data   0x20000244       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .bss.z         0x20000258        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x20000258                z
+ .bss.appState  0x2000025c        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ *fill*         0x2000025d        0x3 
  .bss.appDataSendingTimer
-                0x20000254       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .bss.appMsg    0x20000268       0x38 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x20000260       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .bss.appMsg    0x20000274       0x38 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .bss.nwkDataReqQueue
-                0x200002a0        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+                0x200002ac        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
  .bss.nwkFrameFrames
-                0x200002a4      0x584 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x200002b0      0x584 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
  .bss.nwkRouteTable
-                0x20000828      0x320 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x20000834      0x320 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
  .bss.nwkRouteDiscoveryTimer
-                0x20000b48       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x20000b54       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .bss.nwkRouteDiscoveryTable
-                0x20000b5c       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x20000b68       0x3c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .bss.nwkRxDuplicateRejectionTable
-                0x20000b98      0x12c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x20000ba4      0x12c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
  .bss.nwkRxAckControl
-                0x20000cc4        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- *fill*         0x20000cc5        0x3 
+                0x20000cd0        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ *fill*         0x20000cd1        0x3 
  .bss.nwkRxDuplicateRejectionTimer
-                0x20000cc8       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x20000cd4       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
  .bss.nwkSecurityActiveFrames
-                0x20000cdc        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- *fill*         0x20000cdd        0x3 
+                0x20000ce8        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ *fill*         0x20000ce9        0x3 
  .bss.nwkSecurityActiveFrame
-                0x20000ce0        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x20000cec        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
  .bss.nwkSecurityOffset
-                0x20000ce4        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x20000cf0        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
  .bss.nwkSecuritySize
-                0x20000ce5        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x20000cf1        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
  .bss.nwkSecurityEncrypt
-                0x20000ce6        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- *fill*         0x20000ce7        0x1 
+                0x20000cf2        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ *fill*         0x20000cf3        0x1 
  .bss.nwkSecurityVector
-                0x20000ce8       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x20000cf4       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
  .bss.nwkTxAckWaitTimer
-                0x20000cf8       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x20000d04       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .bss.nwkTxPhyActiveFrame
-                0x20000d0c        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x20000d18        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .bss.nwkTxDelayTimer
-                0x20000d10       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x20000d1c       0x14 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .bss.phyRxBuffer
-                0x20000d24       0x80 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .bss.phyState  0x20000da4        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x20000d30       0x80 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .bss.phyState  0x20000db0        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
  .bss.phyRxState
-                0x20000da5        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- *fill*         0x20000da6        0x2 
- .bss.timers    0x20000da8        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x20000db1        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ *fill*         0x20000db2        0x2 
+ .bss.timers    0x20000db4        0x4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
  .bss.dec_initialized
-                0x20000dac        0x1 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- *fill*         0x20000dad        0x3 
- .bss.dec_key   0x20000db0       0x10 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .bss.enc_key   0x20000dc0       0x10 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .bss.aes_buf   0x20000dd0       0x14 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+                0x20000db8        0x1 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ *fill*         0x20000db9        0x3 
+ .bss.dec_key   0x20000dbc       0x10 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .bss.enc_key   0x20000dcc       0x10 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .bss.aes_buf   0x20000ddc       0x14 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
  .bss.setup_flag
-                0x20000de4        0x1 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- *fill*         0x20000de5        0x3 
+                0x20000df0        0x1 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ *fill*         0x20000df1        0x3 
  .bss.irq_hdl_trx
-                0x20000de8        0x4 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .bss           0x20000dec       0x14 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x20000df4        0x4 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .bss           0x20000df8       0x14 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
  .bss.__malloc_sbrk_start
-                0x20000e00        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
-                0x20000e00                __malloc_sbrk_start
+                0x20000e0c        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
+                0x20000e0c                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x20000e04        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
-                0x20000e04                __malloc_free_list
+                0x20000e10        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
+                0x20000e10                __malloc_free_list
  *(COMMON)
- COMMON         0x20000e08        0x1 src/ASF/sam0/drivers/extint/extint_callback.o
-                0x20000e08                _current_channel
- *fill*         0x20000e09        0x3 
- COMMON         0x20000e0c       0x40 src/ASF/sam0/drivers/extint/extint_sam_d_r/extint.o
-                0x20000e0c                _extint_dev
- COMMON         0x20000e4c        0x4 src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count.o
-                0x20000e4c                _rtc_instance
- COMMON         0x20000e50       0x18 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
-                0x20000e50                _sercom_instances
- COMMON         0x20000e68        0xc src/ASF/sam0/drivers/tc/tc_interrupt.o
-                0x20000e68                _tc_instances
- COMMON         0x20000e74        0x4 src/ASF/sam0/utils/stdio/read.o
-                0x20000e74                ptr_get
- COMMON         0x20000e78        0x8 src/ASF/sam0/utils/stdio/write.o
-                0x20000e78                ptr_put
-                0x20000e7c                stdio_base
- COMMON         0x20000e80       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
-                0x20000e80                nwkIb
- COMMON         0x20000edc        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
-                0x20000edc                SysTimerIrqCount
- *fill*         0x20000edd        0x3 
- COMMON         0x20000ee0       0x50 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
-                0x20000ee0                timer_config
-                0x20000f14                module_inst
- COMMON         0x20000f30       0x50 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
-                0x20000f30                dummy_read
-                0x20000f34                slave_dev_config
-                0x20000f38                slave
-                0x20000f3c                config
-                0x20000f74                master
- COMMON         0x20000f80        0x1 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
-                0x20000f80                timer_multiplier
- *fill*         0x20000f81        0x3 
- COMMON         0x20000f84        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-reent.o)
-                0x20000f84                errno
-                0x20000f88                . = ALIGN (0x4)
-                0x20000f88                _ebss = .
-                0x20000f88                _ezero = .
+ COMMON         0x20000e14        0x1 src/ASF/sam0/drivers/extint/extint_callback.o
+                0x20000e14                _current_channel
+ *fill*         0x20000e15        0x3 
+ COMMON         0x20000e18       0x40 src/ASF/sam0/drivers/extint/extint_sam_d_r/extint.o
+                0x20000e18                _extint_dev
+ COMMON         0x20000e58        0x4 src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count.o
+                0x20000e58                _rtc_instance
+ COMMON         0x20000e5c       0x18 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+                0x20000e5c                _sercom_instances
+ COMMON         0x20000e74        0xc src/ASF/sam0/drivers/tc/tc_interrupt.o
+                0x20000e74                _tc_instances
+ COMMON         0x20000e80        0x4 src/ASF/sam0/utils/stdio/read.o
+                0x20000e80                ptr_get
+ COMMON         0x20000e84        0x8 src/ASF/sam0/utils/stdio/write.o
+                0x20000e84                ptr_put
+                0x20000e88                stdio_base
+ COMMON         0x20000e8c       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x20000e8c                nwkIb
+ COMMON         0x20000ee8        0x1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x20000ee8                SysTimerIrqCount
+ *fill*         0x20000ee9        0x3 
+ COMMON         0x20000eec       0x50 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x20000eec                timer_config
+                0x20000f20                module_inst
+ COMMON         0x20000f3c       0x50 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x20000f3c                dummy_read
+                0x20000f40                slave_dev_config
+                0x20000f44                slave
+                0x20000f48                config
+                0x20000f80                master
+ COMMON         0x20000f8c        0x1 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x20000f8c                timer_multiplier
+ *fill*         0x20000f8d        0x3 
+ COMMON         0x20000f90        0x4 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-reent.o)
+                0x20000f90                errno
+                0x20000f94                . = ALIGN (0x4)
+                0x20000f94                _ebss = .
+                0x20000f94                _ezero = .
 
-.stack          0x20000f88     0x2000 load address 0x00006ff4
-                0x20000f88                . = ALIGN (0x8)
-                0x20000f88                _sstack = .
-                0x20002f88                . = (. + STACK_SIZE)
- *fill*         0x20000f88     0x2000 
-                0x20002f88                . = ALIGN (0x8)
-                0x20002f88                _estack = .
-                0x20002f88                . = ALIGN (0x4)
-                0x20002f88                _end = .
+.stack          0x20000f94     0x2004 load address 0x00007138
+                0x20000f98                . = ALIGN (0x8)
+ *fill*         0x20000f94        0x4 
+                0x20000f98                _sstack = .
+                0x20002f98                . = (. + STACK_SIZE)
+ *fill*         0x20000f98     0x2000 
+                0x20002f98                . = ALIGN (0x8)
+                0x20002f98                _estack = .
+                0x20002f98                . = ALIGN (0x4)
+                0x20002f98                _end = .
 OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
 
 .ARM.attributes
@@ -10945,7 +10974,7 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .comment       0x0000005b       0x33 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
                                  0x34 (size before relaxing)
 
-.debug_info     0x00000000    0x3adf8
+.debug_info     0x00000000    0x3cf0d
  .debug_info    0x00000000      0x269 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_info    0x00000269      0x1ec src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_info    0x00000455     0x14c4 src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -10971,26 +11000,26 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_info    0x00022a02      0x427 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_info    0x00022e29     0x3974 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_info    0x0002679d     0x1ce1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_info    0x0002847e     0x1c8c src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_info    0x0002a10a      0x4eb src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_info    0x0002a5f5      0x807 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_info    0x0002adfc      0x65b src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_info    0x0002b457      0xaa0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_info    0x0002bef7      0xd17 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_info    0x0002cc0e      0xc33 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_info    0x0002d841      0x7d7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_info    0x0002e018      0xa1a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_info    0x0002ea32     0x153a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_info    0x0002ff6c      0xaa1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_info    0x00030a0d      0x10a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_info    0x00030b17      0x549 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_info    0x00031060     0x1c9d src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_info    0x00032cfd      0x517 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_info    0x00033214     0x6e34 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_info    0x0003a048      0xaa8 src/main.o
- .debug_info    0x0003aaf0      0x308 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_info    0x0002847e     0x3da1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_info    0x0002c21f      0x4eb src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_info    0x0002c70a      0x807 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_info    0x0002cf11      0x65b src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_info    0x0002d56c      0xaa0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_info    0x0002e00c      0xd17 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_info    0x0002ed23      0xc33 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_info    0x0002f956      0x7d7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_info    0x0003012d      0xa1a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_info    0x00030b47     0x153a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_info    0x00032081      0xaa1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_info    0x00032b22      0x10a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_info    0x00032c2c      0x549 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_info    0x00033175     0x1c9d src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_info    0x00034e12      0x517 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_info    0x00035329     0x6e34 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_info    0x0003c15d      0xaa8 src/main.o
+ .debug_info    0x0003cc05      0x308 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
-.debug_abbrev   0x00000000     0x7182
+.debug_abbrev   0x00000000     0x7257
  .debug_abbrev  0x00000000      0x13c src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_abbrev  0x0000013c       0xf6 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_abbrev  0x00000232      0x25f src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -11016,26 +11045,26 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_abbrev  0x000037eb      0x141 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_abbrev  0x0000392c      0x41b src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_abbrev  0x00003d47      0x438 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_abbrev  0x0000417f      0x3e6 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_abbrev  0x00004565      0x1e3 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_abbrev  0x00004748      0x269 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_abbrev  0x000049b1      0x1da src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_abbrev  0x00004b8b      0x30a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_abbrev  0x00004e95      0x356 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_abbrev  0x000051eb      0x351 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_abbrev  0x0000553c      0x2a2 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_abbrev  0x000057de      0x2f8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_abbrev  0x00005ad6      0x44e src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_abbrev  0x00005f24      0x1c3 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_abbrev  0x000060e7       0x9d src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_abbrev  0x00006184      0x264 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_abbrev  0x000063e8      0x3e9 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_abbrev  0x000067d1      0x171 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_abbrev  0x00006942      0x52f src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_abbrev  0x00006e71      0x1e3 src/main.o
- .debug_abbrev  0x00007054      0x12e ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_abbrev  0x0000417f      0x4bb src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_abbrev  0x0000463a      0x1e3 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_abbrev  0x0000481d      0x269 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_abbrev  0x00004a86      0x1da src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_abbrev  0x00004c60      0x30a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_abbrev  0x00004f6a      0x356 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_abbrev  0x000052c0      0x351 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_abbrev  0x00005611      0x2a2 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_abbrev  0x000058b3      0x2f8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_abbrev  0x00005bab      0x44e src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_abbrev  0x00005ff9      0x1c3 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_abbrev  0x000061bc       0x9d src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_abbrev  0x00006259      0x264 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_abbrev  0x000064bd      0x3e9 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_abbrev  0x000068a6      0x171 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_abbrev  0x00006a17      0x52f src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_abbrev  0x00006f46      0x1e3 src/main.o
+ .debug_abbrev  0x00007129      0x12e ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
-.debug_loc      0x00000000     0xddc3
+.debug_loc      0x00000000     0xde03
  .debug_loc     0x00000000       0xe4 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_loc     0x000000e4       0x1e src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_loc     0x00000102       0xa5 src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -11061,26 +11090,26 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_loc     0x000078e0      0x112 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_loc     0x000079f2      0x472 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_loc     0x00007e64      0x4eb src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_loc     0x0000834f      0x3c8 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_loc     0x00008717      0x220 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_loc     0x00008937       0xf4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_loc     0x00008a2b       0x95 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_loc     0x00008ac0      0x55f src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_loc     0x0000901f      0x748 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_loc     0x00009767      0x50e src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_loc     0x00009c75      0x15d src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_loc     0x00009dd2      0x3c1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_loc     0x0000a193      0x77c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_loc     0x0000a90f       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_loc     0x0000a94f       0x62 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_loc     0x0000a9b1      0x29a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_loc     0x0000ac4b      0x1ae src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_loc     0x0000adf9      0x25f src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_loc     0x0000b058     0x2b62 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_loc     0x0000dbba       0x20 src/main.o
- .debug_loc     0x0000dbda      0x1e9 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_loc     0x0000834f      0x408 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_loc     0x00008757      0x220 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_loc     0x00008977       0xf4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_loc     0x00008a6b       0x95 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_loc     0x00008b00      0x55f src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_loc     0x0000905f      0x748 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_loc     0x000097a7      0x50e src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_loc     0x00009cb5      0x15d src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_loc     0x00009e12      0x3c1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_loc     0x0000a1d3      0x77c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_loc     0x0000a94f       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_loc     0x0000a98f       0x62 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_loc     0x0000a9f1      0x29a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_loc     0x0000ac8b      0x1ae src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_loc     0x0000ae39      0x25f src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_loc     0x0000b098     0x2b62 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_loc     0x0000dbfa       0x20 src/main.o
+ .debug_loc     0x0000dc1a      0x1e9 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
-.debug_aranges  0x00000000      0xd28
+.debug_aranges  0x00000000      0xd58
  .debug_aranges
                 0x00000000       0x30 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_aranges
@@ -11132,43 +11161,43 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_aranges
                 0x000006c8       0x60 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
  .debug_aranges
-                0x00000728       0x48 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                0x00000728       0x78 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
  .debug_aranges
-                0x00000770       0x70 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+                0x000007a0       0x70 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
  .debug_aranges
-                0x000007e0       0x38 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+                0x00000810       0x38 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
  .debug_aranges
-                0x00000818       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+                0x00000848       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
  .debug_aranges
-                0x00000858       0x80 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+                0x00000888       0x80 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
  .debug_aranges
-                0x000008d8       0x60 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+                0x00000908       0x60 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
  .debug_aranges
-                0x00000938       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+                0x00000968       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
  .debug_aranges
-                0x00000988       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+                0x000009b8       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
  .debug_aranges
-                0x000009c8       0x68 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+                0x000009f8       0x68 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
  .debug_aranges
-                0x00000a30       0x98 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+                0x00000a60       0x98 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
  .debug_aranges
-                0x00000ac8       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+                0x00000af8       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
  .debug_aranges
-                0x00000af0       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+                0x00000b20       0x20 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
  .debug_aranges
-                0x00000b10       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+                0x00000b40       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
  .debug_aranges
-                0x00000b60       0x78 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+                0x00000b90       0x78 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
  .debug_aranges
-                0x00000bd8       0x48 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+                0x00000c08       0x48 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
  .debug_aranges
-                0x00000c20       0x80 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+                0x00000c50       0x80 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
  .debug_aranges
-                0x00000ca0       0x20 src/main.o
+                0x00000cd0       0x20 src/main.o
  .debug_aranges
-                0x00000cc0       0x68 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+                0x00000cf0       0x68 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
-.debug_ranges   0x00000000     0x1268
+.debug_ranges   0x00000000     0x1298
  .debug_ranges  0x00000000       0x50 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_ranges  0x00000050       0x18 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_ranges  0x00000068       0x10 src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -11194,24 +11223,24 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_ranges  0x00000830       0x50 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_ranges  0x00000880       0x50 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_ranges  0x000008d0       0x80 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_ranges  0x00000950       0x50 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_ranges  0x000009a0       0x60 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_ranges  0x00000a00       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_ranges  0x00000a28       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_ranges  0x00000a58       0x70 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_ranges  0x00000ac8       0x68 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_ranges  0x00000b30       0x58 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_ranges  0x00000b88       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_ranges  0x00000bb8       0x58 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_ranges  0x00000c10      0x160 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_ranges  0x00000d70       0x18 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_ranges  0x00000d88       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_ranges  0x00000d98       0x90 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_ranges  0x00000e28       0x68 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_ranges  0x00000e90       0x38 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_ranges  0x00000ec8      0x338 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_ranges  0x00001200       0x10 src/main.o
- .debug_ranges  0x00001210       0x58 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_ranges  0x00000950       0x80 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_ranges  0x000009d0       0x60 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_ranges  0x00000a30       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_ranges  0x00000a58       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_ranges  0x00000a88       0x70 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_ranges  0x00000af8       0x68 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_ranges  0x00000b60       0x58 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_ranges  0x00000bb8       0x30 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_ranges  0x00000be8       0x58 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_ranges  0x00000c40      0x160 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_ranges  0x00000da0       0x18 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_ranges  0x00000db8       0x10 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_ranges  0x00000dc8       0x90 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_ranges  0x00000e58       0x68 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_ranges  0x00000ec0       0x38 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_ranges  0x00000ef8      0x338 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_ranges  0x00001230       0x10 src/main.o
+ .debug_ranges  0x00001240       0x58 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
 .debug_macro    0x00000000     0xf582
  .debug_macro   0x00000000      0x47d src/ASF/common2/services/delay/sam0/systick_counter.o
@@ -11319,7 +11348,7 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_macro   0x0000f35e      0x214 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
  .debug_macro   0x0000f572       0x10 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
-.debug_line     0x00000000    0x1e0e2
+.debug_line     0x00000000    0x1e179
  .debug_line    0x00000000      0x945 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_line    0x00000945      0x84a src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_line    0x0000118f      0x922 src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -11345,26 +11374,26 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_line    0x0000e3f4      0x39d src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_line    0x0000e791     0x103f src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_line    0x0000f7d0     0x10ec src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_line    0x000108bc     0x1149 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_line    0x00011a05      0xb22 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_line    0x00012527      0xa5a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_line    0x00012f81      0xa47 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_line    0x000139c8      0xac4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_line    0x0001448c      0xae3 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_line    0x00014f6f      0xba7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_line    0x00015b16      0xaa7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_line    0x000165bd      0xba4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_line    0x00017161      0xdcf src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_line    0x00017f30     0x1065 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_line    0x00018f95      0x46a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_line    0x000193ff      0x9fa src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_line    0x00019df9      0xbdb src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_line    0x0001a9d4      0xc2c src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_line    0x0001b600     0x1967 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_line    0x0001cf67      0xebe src/main.o
- .debug_line    0x0001de25      0x2bd ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_line    0x000108bc     0x11e0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_line    0x00011a9c      0xb22 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_line    0x000125be      0xa5a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_line    0x00013018      0xa47 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_line    0x00013a5f      0xac4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_line    0x00014523      0xae3 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_line    0x00015006      0xba7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_line    0x00015bad      0xaa7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_line    0x00016654      0xba4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_line    0x000171f8      0xdcf src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_line    0x00017fc7     0x1065 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_line    0x0001902c      0x46a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_line    0x00019496      0x9fa src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_line    0x00019e90      0xbdb src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_line    0x0001aa6b      0xc2c src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_line    0x0001b697     0x1967 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_line    0x0001cffe      0xebe src/main.o
+ .debug_line    0x0001debc      0x2bd ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
-.debug_str      0x00000000    0x87047
+.debug_str      0x00000000    0x87323
  .debug_str     0x00000000    0x76240 src/ASF/common2/services/delay/sam0/systick_counter.o
                               0x765d9 (size before relaxing)
  .debug_str     0x00076240       0x94 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
@@ -11375,84 +11404,84 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
                               0x76c57 (size before relaxing)
  .debug_str     0x00079997      0xc23 src/ASF/sam0/drivers/extint/extint_sam_d_r/extint.o
                               0x77b5d (size before relaxing)
- .debug_str     0x0007a5ba       0x53 src/ASF/sam0/drivers/port/port.o
+ .debug_str     0x0007a5ba       0x4e src/ASF/sam0/drivers/port/port.o
                               0x76819 (size before relaxing)
- .debug_str     0x0007a60d     0x17e0 src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count.o
+ .debug_str     0x0007a608     0x17db src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count.o
                               0x789d6 (size before relaxing)
- .debug_str     0x0007bded      0x104 src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count_interrupt.o
+ .debug_str     0x0007bde3      0x104 src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count_interrupt.o
                               0x77e5b (size before relaxing)
- .debug_str     0x0007bef1      0xeaa src/ASF/sam0/drivers/sercom/sercom.o
+ .debug_str     0x0007bee7      0xeaa src/ASF/sam0/drivers/sercom/sercom.o
                               0x77aa7 (size before relaxing)
- .debug_str     0x0007cd9b      0x1b8 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ .debug_str     0x0007cd91      0x1b8 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
                               0x778e2 (size before relaxing)
- .debug_str     0x0007cf53     0x196c src/ASF/sam0/drivers/sercom/spi/spi.o
+ .debug_str     0x0007cf49     0x196c src/ASF/sam0/drivers/sercom/spi/spi.o
                               0x795c2 (size before relaxing)
- .debug_str     0x0007e8bf      0x8c9 src/ASF/sam0/drivers/sercom/usart/usart.o
+ .debug_str     0x0007e8b5      0x8c9 src/ASF/sam0/drivers/sercom/usart/usart.o
                               0x7875c (size before relaxing)
- .debug_str     0x0007f188      0x179 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
+ .debug_str     0x0007f17e      0x179 src/ASF/sam0/drivers/sercom/usart/usart_interrupt.o
                               0x77a56 (size before relaxing)
- .debug_str     0x0007f301     0x178f src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
+ .debug_str     0x0007f2f7     0x178f src/ASF/sam0/drivers/system/clock/clock_samd21_r21/clock.o
                               0x794ff (size before relaxing)
- .debug_str     0x00080a90      0x2ca src/ASF/sam0/drivers/system/clock/clock_samd21_r21/gclk.o
+ .debug_str     0x00080a86      0x2ca src/ASF/sam0/drivers/system/clock/clock_samd21_r21/gclk.o
                               0x7707d (size before relaxing)
- .debug_str     0x00080d5a      0x130 src/ASF/sam0/drivers/system/pinmux/pinmux.o
+ .debug_str     0x00080d50      0x130 src/ASF/sam0/drivers/system/pinmux/pinmux.o
                               0x76831 (size before relaxing)
- .debug_str     0x00080e8a       0x47 src/ASF/sam0/drivers/system/system.o
+ .debug_str     0x00080e80       0x47 src/ASF/sam0/drivers/system/system.o
                               0x764bf (size before relaxing)
- .debug_str     0x00080ed1      0x65c src/ASF/sam0/drivers/tc/tc_interrupt.o
+ .debug_str     0x00080ec7      0x65c src/ASF/sam0/drivers/tc/tc_interrupt.o
                               0x77191 (size before relaxing)
- .debug_str     0x0008152d      0x51d src/ASF/sam0/drivers/tc/tc_sam_d_r/tc.o
+ .debug_str     0x00081523      0x51d src/ASF/sam0/drivers/tc/tc_sam_d_r/tc.o
                               0x779e6 (size before relaxing)
- .debug_str     0x00081a4a      0x39b src/ASF/sam0/utils/cmsis/samr21/source/gcc/startup_samr21.o
+ .debug_str     0x00081a40      0x39b src/ASF/sam0/utils/cmsis/samr21/source/gcc/startup_samr21.o
                               0x647b6 (size before relaxing)
- .debug_str     0x00081de5       0x3d src/ASF/sam0/utils/stdio/read.o
+ .debug_str     0x00081ddb       0x3d src/ASF/sam0/utils/stdio/read.o
                               0x763e7 (size before relaxing)
- .debug_str     0x00081e22       0x2c src/ASF/sam0/utils/stdio/write.o
+ .debug_str     0x00081e18       0x2c src/ASF/sam0/utils/stdio/write.o
                               0x763e9 (size before relaxing)
- .debug_str     0x00081e4e      0x742 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
+ .debug_str     0x00081e44      0x742 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
                                0x4ea5 (size before relaxing)
- .debug_str     0x00082590      0x864 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
+ .debug_str     0x00082586      0x864 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
                               0x7dbcc (size before relaxing)
- .debug_str     0x00082df4      0x977 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
+ .debug_str     0x00082dea      0x977 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
                               0x7ce4e (size before relaxing)
- .debug_str     0x0008376b      0x33e src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
-                              0x7ce93 (size before relaxing)
- .debug_str     0x00083aa9      0x11f src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_str     0x00083761      0x624 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+                              0x7d82c (size before relaxing)
+ .debug_str     0x00083d85      0x11f src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
                               0x778d9 (size before relaxing)
- .debug_str     0x00083bc8      0x2ca src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_str     0x00083ea4      0x2ca src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
                               0x77b14 (size before relaxing)
- .debug_str     0x00083e92       0xb5 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_str     0x0008416e       0xb5 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
                               0x779d4 (size before relaxing)
- .debug_str     0x00083f47      0x260 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_str     0x00084223      0x260 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
                               0x76c97 (size before relaxing)
- .debug_str     0x000841a7      0x2c5 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_str     0x00084483      0x2c5 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
                               0x76e48 (size before relaxing)
- .debug_str     0x0008446c      0x38a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_str     0x00084748      0x38a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
                               0x77dad (size before relaxing)
- .debug_str     0x000847f6      0x20c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_str     0x00084ad2      0x20c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
                               0x77ab8 (size before relaxing)
- .debug_str     0x00084a02      0x29d src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_str     0x00084cde      0x29d src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
                               0x77d3d (size before relaxing)
- .debug_str     0x00084c9f     0x1496 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_str     0x00084f7b     0x1496 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
                               0x7a718 (size before relaxing)
- .debug_str     0x00086135       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_str     0x00086411       0x5c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
                               0x7c4c6 (size before relaxing)
- .debug_str     0x00086191       0x59 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_str     0x0008646d       0x59 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
                                0x57c3 (size before relaxing)
- .debug_str     0x000861ea      0x153 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_str     0x000864c6      0x153 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
                               0x765f5 (size before relaxing)
- .debug_str     0x0008633d      0x278 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_str     0x00086619      0x278 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
                               0x779bc (size before relaxing)
- .debug_str     0x000865b5      0x193 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_str     0x00086891      0x193 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
                               0x7a527 (size before relaxing)
- .debug_str     0x00086748      0x1de src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_str     0x00086a24      0x1de src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
                               0x7df06 (size before relaxing)
- .debug_str     0x00086926       0x13 src/main.o
+ .debug_str     0x00086c02       0x13 src/main.o
                               0x7be71 (size before relaxing)
- .debug_str     0x00086939      0x70e ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_str     0x00086c15      0x70e ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
                                0x2c21 (size before relaxing)
 
-.debug_frame    0x00000000     0x24d0
+.debug_frame    0x00000000     0x2544
  .debug_frame   0x00000000       0x60 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_frame   0x00000060       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_frame   0x00000090       0x38 src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -11478,44 +11507,44 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_frame   0x00000dfc       0xa8 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_frame   0x00000ea4      0x114 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_frame   0x00000fb8       0xf0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_frame   0x000010a8       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_frame   0x00001168       0xfc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_frame   0x00001264       0x64 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_frame   0x000012c8       0x6c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_frame   0x00001334      0x154 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_frame   0x00001488      0x11c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_frame   0x000015a4       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_frame   0x00001664       0x88 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_frame   0x000016ec      0x104 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_frame   0x000017f0      0x1c8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_frame   0x000019b8       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_frame   0x000019f8       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_frame   0x00001a20       0xb4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_frame   0x00001ad4      0x118 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_frame   0x00001bec       0xa8 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_frame   0x00001c94      0x1bc src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_frame   0x00001e50       0x28 src/main.o
- .debug_frame   0x00001e78       0xf8 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
- .debug_frame   0x00001f70       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x00001f90       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
- .debug_frame   0x00001fc0       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
- .debug_frame   0x00001fec       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00002014       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
- .debug_frame   0x00002034       0x44 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
- .debug_frame   0x00002078       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setbuf.o)
- .debug_frame   0x000020a0       0x34 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setvbuf.o)
- .debug_frame   0x000020d4       0x68 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fflush.o)
- .debug_frame   0x0000213c      0x148 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
- .debug_frame   0x00002284       0x40 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-malloc.o)
- .debug_frame   0x000022c4       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-freer.o)
- .debug_frame   0x000022f0       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
- .debug_frame   0x0000231c       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-sbrkr.o)
- .debug_frame   0x00002348       0x90 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
- .debug_frame   0x000023d8       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-writer.o)
- .debug_frame   0x00002404       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-closer.o)
- .debug_frame   0x00002430       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-lseekr.o)
- .debug_frame   0x0000245c       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-readr.o)
- .debug_frame   0x00002488       0x48 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-reent.o)
+ .debug_frame   0x000010a8      0x134 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_frame   0x000011dc       0xfc src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_frame   0x000012d8       0x64 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_frame   0x0000133c       0x6c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_frame   0x000013a8      0x154 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_frame   0x000014fc      0x11c src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_frame   0x00001618       0xc0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_frame   0x000016d8       0x88 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_frame   0x00001760      0x104 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_frame   0x00001864      0x1c8 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_frame   0x00001a2c       0x40 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_frame   0x00001a6c       0x28 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_frame   0x00001a94       0xb4 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_frame   0x00001b48      0x118 src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_frame   0x00001c60       0xa8 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_frame   0x00001d08      0x1bc src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_frame   0x00001ec4       0x28 src/main.o
+ .debug_frame   0x00001eec       0xf8 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_frame   0x00001fe4       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00002004       0x30 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_muldi3.o)
+ .debug_frame   0x00002034       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-init.o)
+ .debug_frame   0x00002060       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00002088       0x20 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-memset.o)
+ .debug_frame   0x000020a8       0x44 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
+ .debug_frame   0x000020ec       0x28 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setbuf.o)
+ .debug_frame   0x00002114       0x34 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-setvbuf.o)
+ .debug_frame   0x00002148       0x68 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-fflush.o)
+ .debug_frame   0x000021b0      0x148 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-findfp.o)
+ .debug_frame   0x000022f8       0x40 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-malloc.o)
+ .debug_frame   0x00002338       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-freer.o)
+ .debug_frame   0x00002364       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00002390       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-sbrkr.o)
+ .debug_frame   0x000023bc       0x90 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-stdio.o)
+ .debug_frame   0x0000244c       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-writer.o)
+ .debug_frame   0x00002478       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-closer.o)
+ .debug_frame   0x000024a4       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-lseekr.o)
+ .debug_frame   0x000024d0       0x2c c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-readr.o)
+ .debug_frame   0x000024fc       0x48 c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-reent.o)
 
 Cross Reference Table
 
@@ -11527,6 +11556,7 @@ APP_CommandsInit                                  src/ASF/thirdparty/wireless/av
 APP_CommandsPending                               src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
                                                   src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 AT86RFX_ISR                                       src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+BatteryLife                                       src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 DMAC_Handler                                      src/ASF/sam0/utils/cmsis/samr21/source/gcc/startup_samr21.o
 Dummy_Handler                                     src/ASF/sam0/utils/cmsis/samr21/source/gcc/startup_samr21.o
 EIC_Handler                                       src/ASF/sam0/drivers/extint/extint_callback.o
@@ -11890,6 +11920,7 @@ adc_get_config_defaults                           src/ASF/sam0/drivers/adc/adc_s
 adc_init                                          src/ASF/sam0/drivers/adc/adc_sam_d_r/adc.o
 adc_set_window_mode                               src/ASF/sam0/drivers/adc/adc_sam_d_r/adc.o
 atexit                                            c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+battery_handler                                   src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 board_init                                        src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
 cleanup_glue                                      c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-reent.o)
 common_tc_compare_stop                            ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
@@ -11901,6 +11932,7 @@ common_tc_overflow_stop                           ../src/ASF/thirdparty/wireless
 common_tc_read_count                              ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 common_tc_stop                                    ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 config                                            src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+config_EIC                                        src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 cpu_irq_enter_critical                            src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
                                                   src/ASF/sam0/drivers/system/clock/clock_samd21_r21/gclk.o
 cpu_irq_leave_critical                            src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
@@ -11913,6 +11945,8 @@ delay_cycles_us                                   src/ASF/common2/services/delay
 delay_init                                        src/ASF/common2/services/delay/sam0/systick_counter.o
                                                   src/main.o
 dummy_read                                        src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+enable_adc_clocks                                 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+enable_port                                       src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 errno                                             c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-reent.o)
                                                   c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-readr.o)
                                                   c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-lseekr.o)
@@ -11948,6 +11982,7 @@ g_interrupt_enabled                               src/ASF/common/utils/interrupt
                                                   src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
                                                   src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
 hardware_init_hook                                c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+init_adc                                          src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 iprintf                                           c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-printf.o)
 link                                              src/ASF/sam0/utils/syscalls/gcc/syscalls.o
 main                                              src/main.o
@@ -12068,6 +12103,8 @@ nwkTxInit                                         src/ASF/thirdparty/wireless/av
                                                   src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
 nwkTxTaskHandler                                  src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
                                                   src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+portADC                                           src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+portEIC                                           src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 port_group_set_config                             src/ASF/sam0/drivers/port/port.o
 port_pin_set_config                               src/ASF/sam0/drivers/port/port.o
                                                   src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
@@ -12081,8 +12118,10 @@ ptr_put                                           src/ASF/thirdparty/wireless/ad
                                                   src/ASF/sam0/utils/stdio/write.o
 rand                                              c:/program files (x86)/atmel/atmel toolchain/arm gcc/native/4.8.1443/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc_s.a(lib_a-rand.o)
                                                   src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+read_adc                                          src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 restore_cpu_interrupt                             src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
                                                   ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+resultADC                                         src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
 rtc_count_clear_compare_match                     src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count.o
 rtc_count_disable                                 src/ASF/sam0/drivers/rtc/rtc_sam_d_r/rtc_count.o
                                                   src/ASF/thirdparty/wireless/services/sleep_mgr/sam0/sleep_mgr.o
@@ -12306,3 +12345,4 @@ wsndemo_init                                      src/ASF/thirdparty/wireless/av
                                                   src/main.o
 wsndemo_task                                      src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
                                                   src/main.o
+z                                                 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
