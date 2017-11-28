@@ -90,7 +90,7 @@
 #include "sleep_mgr.h"
 #endif
 #include "commands.h"
-#if APP_COORDINATOR
+#if APP_COORDINATOR || APP_ROUTER
 #include "sio2host.h"
 #endif
 #if SAMD || SAMR21
@@ -162,7 +162,7 @@ static SYS_Timer_t appCommandWaitTimer;
 static bool appNetworkStatus;
 #endif
 
-#if APP_COORDINATOR
+#if APP_COORDINATOR || APP_ROUTER
 static uint8_t rx_data[APP_RX_BUF_SIZE];
 #endif
 
@@ -177,7 +177,7 @@ void UartBytesReceived(uint16_t bytes, uint8_t *byte );
 
 /*- Implementations --------------------------------------------------------*/
 
-#if APP_COORDINATOR
+#if APP_COORDINATOR || APP_ROUTER
 
 /*****************************************************************************
 *****************************************************************************/
@@ -224,7 +224,7 @@ static bool appDataInd(NWK_DataInd_t *ind)
 #endif
 	msg->lqi = ind->lqi;
 	msg->rssi = ind->rssi;
-#if APP_COORDINATOR
+#if APP_COORDINATOR || APP_ROUTER
 	appUartSendMessage(ind->data, ind->size);
 
 	if (APP_CommandsPending(ind->srcAddr)) {
@@ -336,7 +336,7 @@ static void appSendData(void)
   appMsg.sensors.light       =	0x4c;//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
-#if APP_COORDINATOR
+#if APP_COORDINATOR || APP_ROUTER
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
 	SYS_TimerStart(&appDataSendingTimer);
 	appState = APP_STATE_WAIT_SEND_TIMER;
@@ -489,7 +489,7 @@ static void APP_TaskHandler(void)
 		break;
 	}
 
-#if (APP_COORDINATOR)
+#if (APP_COORDINATOR||APP_ROUTER)   //ADDED ROUTER
 	uint16_t bytes;
 	if ((bytes = sio2host_rx(rx_data, APP_RX_BUF_SIZE)) > 0) {
 		UartBytesReceived(bytes, (uint8_t *)&rx_data);
@@ -520,7 +520,7 @@ void wsndemo_init(void)
 #if APP_ENDDEVICE
 	sm_init();
 #endif
-#if APP_COORDINATOR
+#if APP_COORDINATOR || APP_ROUTER  //added ROUTER
 	sio2host_init();
 #endif
 	
