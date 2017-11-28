@@ -190,7 +190,7 @@ void UartBytesReceived(uint16_t bytes, uint8_t *byte )
 
 static void appUartSendMessage(uint8_t *data, uint8_t size)
 {
-	uint8_t cs = 0;
+	uint8_t cs = 0;   //some kind of counter for error detection on the other end?  
 
 	sio2host_putchar(0x10);
 	sio2host_putchar(0x02);
@@ -207,9 +207,9 @@ static void appUartSendMessage(uint8_t *data, uint8_t size)
 
 	sio2host_putchar(0x10);
 	sio2host_putchar(0x03);
-	cs += 0x10 + 0x02 + 0x10 + 0x03;
+	cs += 0x10 + 0x02 + 0x10 + 0x03;  //escape character + 
 
-	sio2host_putchar(cs);
+	sio2host_putchar(cs); //we append this big number to the end, possible checksum value for error detection on the other side of UART
 }
 
 #endif
@@ -318,17 +318,23 @@ static void appSendData(void)
 #else
 	appMsg.parentShortAddr = 0;
 #endif
-//$$$ change this to alter data sent to network $$$ //
+//$$$ change this to alter data sent to network $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
   
+  //Get state of the onboard switch SW0
   uint8_t thisData = 0x46;
   bool pinRead;
   pinRead = port_pin_get_input_level(BUTTON_0_PIN);
-  if(pinRead==true){
+  if(pinRead==false){
 	  thisData = 0x54;
   }
+  //Read and store the ADC for the temperature sensor
+  uint8_t temperatureData;
+  
+  
   appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
   appMsg.sensors.temperature =	0x54;//T for temp //rand() & 0x7f;
   appMsg.sensors.light       =	0x4c;//L for light //rand() & 0xff;
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
 #if APP_COORDINATOR
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));

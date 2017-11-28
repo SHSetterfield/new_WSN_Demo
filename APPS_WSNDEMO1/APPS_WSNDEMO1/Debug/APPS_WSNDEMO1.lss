@@ -15,23 +15,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .comment      0000008e  00000000  00000000  00010098  2**0
                   CONTENTS, READONLY
-  6 .debug_info   0003ade7  00000000  00000000  00010126  2**0
+  6 .debug_info   0003adf8  00000000  00000000  00010126  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00007182  00000000  00000000  0004af0d  2**0
+  7 .debug_abbrev 00007182  00000000  00000000  0004af1e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    0000ddc3  00000000  00000000  0005208f  2**0
+  8 .debug_loc    0000ddc3  00000000  00000000  000520a0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 00000d28  00000000  00000000  0005fe52  2**0
+  9 .debug_aranges 00000d28  00000000  00000000  0005fe63  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00001268  00000000  00000000  00060b7a  2**0
+ 10 .debug_ranges 00001268  00000000  00000000  00060b8b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  0000f582  00000000  00000000  00061de2  2**0
+ 11 .debug_macro  0000f582  00000000  00000000  00061df3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   0001e0e0  00000000  00000000  00071364  2**0
+ 12 .debug_line   0001e0e2  00000000  00000000  00071375  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00087037  00000000  00000000  0008f444  2**0
+ 13 .debug_str    00087047  00000000  00000000  0008f457  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  000024d0  00000000  00000000  0011647c  2**2
+ 14 .debug_frame  000024d0  00000000  00000000  001164a0  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -11325,33 +11325,33 @@ static void appSendData(void)
 	return (port_base->IN.reg & pin_mask);
     2a22:	4b2e      	ldr	r3, [pc, #184]	; (2adc <wsndemo_task+0x1a4>)
     2a24:	6a1a      	ldr	r2, [r3, #32]
-  
+  //Get state of the onboard switch SW0
   uint8_t thisData = 0x46;
   bool pinRead;
   pinRead = port_pin_get_input_level(BUTTON_0_PIN);
-  if(pinRead==true){
+  if(pinRead==false){
 	  thisData = 0x54;
     2a26:	2354      	movs	r3, #84	; 0x54
-//$$$ change this to alter data sent to network $$$ //
   
+  //Get state of the onboard switch SW0
   uint8_t thisData = 0x46;
   bool pinRead;
   pinRead = port_pin_get_input_level(BUTTON_0_PIN);
-  if(pinRead==true){
+  if(pinRead==false){
     2a28:	00d1      	lsls	r1, r2, #3
-    2a2a:	d400      	bmi.n	2a2e <wsndemo_task+0xf6>
-#else
+    2a2a:	d500      	bpl.n	2a2e <wsndemo_task+0xf6>
 	appMsg.parentShortAddr = 0;
 #endif
-//$$$ change this to alter data sent to network $$$ //
+//$$$ change this to alter data sent to network $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
   
+  //Get state of the onboard switch SW0
   uint8_t thisData = 0x46;
     2a2c:	2346      	movs	r3, #70	; 0x46
-  bool pinRead;
-  pinRead = port_pin_get_input_level(BUTTON_0_PIN);
-  if(pinRead==true){
-	  thisData = 0x54;
   }
+  //Read and store the ADC for the temperature sensor
+  uint8_t temperatureData;
+  
+  
   appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
     2a2e:	481c      	ldr	r0, [pc, #112]	; (2aa0 <wsndemo_task+0x168>)
     2a30:	0219      	lsls	r1, r3, #8
@@ -11382,6 +11382,7 @@ static void appSendData(void)
     2a5e:	2200      	movs	r2, #0
     2a60:	2328      	movs	r3, #40	; 0x28
     2a62:	54c2      	strb	r2, [r0, r3]
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
 #if APP_COORDINATOR
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
