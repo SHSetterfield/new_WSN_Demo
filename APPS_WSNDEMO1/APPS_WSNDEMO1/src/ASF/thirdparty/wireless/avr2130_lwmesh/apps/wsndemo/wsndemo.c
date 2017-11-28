@@ -190,7 +190,7 @@ void UartBytesReceived(uint16_t bytes, uint8_t *byte )
 
 static void appUartSendMessage(uint8_t *data, uint8_t size)
 {
-	uint8_t cs = 0;   //some kind of counter for error detection on the other end?  
+	uint8_t cs = 0;   //some kind of checksum probably  
 
 	sio2host_putchar(0x10);
 	sio2host_putchar(0x02);
@@ -320,7 +320,7 @@ static void appSendData(void)
 #endif
 //$$$ change this to alter data sent to network $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
   
-  //Get state of the onboard switch SW0
+  //Get state of the on board switch SW0
   uint8_t thisData = 0x46;
   bool pinRead;
   pinRead = port_pin_get_input_level(BUTTON_0_PIN);
@@ -328,18 +328,27 @@ static void appSendData(void)
 	  thisData = 0x54;
   }
   //Read and store the ADC for the temperature sensor
-  uint8_t temperatureData;
+  //uint8_t temperatureData;  //not used on imaging node (probably)
   
+  //UartBytesReceived(APP_RX_BUF_SIZE, *rx_data );  //call UART read function, assign output to var
   
   appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
-  appMsg.sensors.temperature =	0x54;//T for temp //rand() & 0x7f;
-  appMsg.sensors.light       =	0x4c;//L for light //rand() & 0xff;
+  appMsg.sensors.temperature =	*rx_data; //T for temp is 0x54 //rand() & 0x7f;
+  appMsg.sensors.light       =	0x4c;	//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
 #if APP_COORDINATOR || APP_ROUTER
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
 	SYS_TimerStart(&appDataSendingTimer);
 	appState = APP_STATE_WAIT_SEND_TIMER;
+	//added all below to try to return networking functionality to router, didn't work
+	appNwkDataReq.dstAddr = 0;
+	appNwkDataReq.dstEndpoint = APP_ENDPOINT;
+	appNwkDataReq.srcEndpoint = APP_ENDPOINT;
+	appNwkDataReq.options = NWK_OPT_ACK_REQUEST | NWK_OPT_ENABLE_SECURITY;
+	appNwkDataReq.data = (uint8_t *)&appMsg;
+	appNwkDataReq.size = sizeof(appMsg);
+	appNwkDataReq.confirm = appDataConf;
 #else
 	appNwkDataReq.dstAddr = 0;
 	appNwkDataReq.dstEndpoint = APP_ENDPOINT;
@@ -517,7 +526,7 @@ void wsndemo_init(void)
 	port_pin_set_config(LED_0_PIN, &config_port_pin);
 	////////////////////////////////////////////////
 	
-#if APP_ENDDEVICE
+#if APP_ENDDEVICE //|| APP_ROUTER  //ADDED ROUTER
 	sm_init();
 #endif
 #if APP_COORDINATOR || APP_ROUTER  //added ROUTER

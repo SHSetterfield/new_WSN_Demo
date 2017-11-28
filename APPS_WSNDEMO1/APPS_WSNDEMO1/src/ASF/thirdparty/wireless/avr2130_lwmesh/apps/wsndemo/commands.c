@@ -58,7 +58,7 @@
 #include "asf.h"
 
 /*- Definitions ------------------------------------------------------------*/
-#define APP_CMD_UART_BUFFER_SIZE    16
+#define APP_CMD_UART_BUFFER_SIZE    16  //WAS 16, CHANGED TO 8 TO FIT INTO A SENSOR FIELD
 #define APP_CMD_PENDING_TABLE_SIZE  5
 #define APP_CMD_INVALID_ADDR        0xffff
 
@@ -180,7 +180,7 @@ void APP_CommandsByteReceived(uint8_t byte)
 	switch (appCmdUartState) {
 	case APP_CMD_UART_STATE_IDLE:
 	{
-		if (0x10 == byte) {
+		if (0x10 == byte) {   //data link escape (DLE)
 			appCmdUartPtr = 0;
 			appCmdUartCsum = byte;
 			appCmdUartState = APP_CMD_UART_STATE_SYNC;
@@ -192,7 +192,7 @@ void APP_CommandsByteReceived(uint8_t byte)
 	{
 		appCmdUartCsum += byte;
 
-		if (0x02 == byte) {
+		if (0x02 == byte) {  //start of text (STX)
 			appCmdUartState = APP_CMD_UART_STATE_DATA;
 		} else {
 			appCmdUartState = APP_CMD_UART_STATE_IDLE;
@@ -204,7 +204,7 @@ void APP_CommandsByteReceived(uint8_t byte)
 	{
 		appCmdUartCsum += byte;
 
-		if (0x10 == byte) {
+		if (0x10 == byte) {  //Data Link Escape (DLE)
 			appCmdUartState = APP_CMD_UART_STATE_MARK;
 		} else {
 			appCmdUartBuf[appCmdUartPtr++] = byte;
@@ -220,7 +220,7 @@ void APP_CommandsByteReceived(uint8_t byte)
 	{
 		appCmdUartCsum += byte;
 
-		if (0x10 == byte) {
+		if (0x10 == byte) {  //Data Link Escape
 			appCmdUartBuf[appCmdUartPtr++] = byte;
 
 			if (appCmdUartPtr == APP_CMD_UART_BUFFER_SIZE) {
@@ -228,7 +228,7 @@ void APP_CommandsByteReceived(uint8_t byte)
 			} else {
 				appCmdUartState = APP_CMD_UART_STATE_DATA;
 			}
-		} else if (0x03 == byte) {
+		} else if (0x03 == byte) {  //End of text
 			appCmdUartState = APP_CMD_UART_STATE_CSUM;
 		} else {
 			appCmdUartState = APP_CMD_UART_STATE_IDLE;
