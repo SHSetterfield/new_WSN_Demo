@@ -1,4 +1,6 @@
 /**
+ *$$$$$$$$$$$$$$$$$$$$$$$$$$$$   Imaging Node Application $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ *								  SMART CITY MESH NETWORK
  * \file WSNDemo.c
  *
  * \brief WSNDemo application implementation
@@ -163,7 +165,7 @@ static bool appNetworkStatus;
 #endif
 
 #if APP_COORDINATOR || APP_ROUTER  //I added this or router logic
-static uint8_t rx_data[APP_RX_BUF_SIZE];
+uint8_t rx_data[APP_RX_BUF_SIZE];  //remove static to attempt to fix rx issue 
 #endif
 
 static AppMessage_t appMsg;
@@ -330,12 +332,14 @@ static void appSendData(void)
   //Read and store the ADC for the temperature sensor
   //uint8_t temperatureData;  //not used on imaging node (probably)
   
-  //UartBytesReceived(APP_RX_BUF_SIZE, *rx_data );  //call UART read function, assign output to var
+  //sio2host_rx(uint8_t *data, uint8_t max_length)  //function in sio2host.c that returns data
+
   
   appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
   appMsg.sensors.temperature =	*rx_data; //T for temp is 0x54 //rand() & 0x7f;
   appMsg.sensors.light       =	0x4c;	//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
+ // *rx_data = NULL;  //see if this "flushes" the buffer without messing things up
 
 #if APP_COORDINATOR //|| APP_ROUTER  //I added this or router 
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
@@ -349,7 +353,7 @@ static void appSendData(void)
 	appNwkDataReq.data = (uint8_t *)&appMsg;
 	appNwkDataReq.size = sizeof(appMsg);
 	appNwkDataReq.confirm = appDataConf;
-	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
+	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));  //putting this stuff after the above fixed the no networking problem
 	SYS_TimerStart(&appDataSendingTimer);
 	appState = APP_STATE_WAIT_SEND_TIMER;
 
@@ -395,7 +399,7 @@ static void appInit(void)
 	PHY_SetBand(APP_BAND);
 	PHY_SetModulation(APP_MODULATION);
 #endif
-	PHY_SetRxState(true);  //investigate for not routing issue
+	PHY_SetRxState(true);  
 
 #ifdef NWK_ENABLE_SECURITY
 	NWK_SetSecurityKey((uint8_t *)APP_SECURITY_KEY);

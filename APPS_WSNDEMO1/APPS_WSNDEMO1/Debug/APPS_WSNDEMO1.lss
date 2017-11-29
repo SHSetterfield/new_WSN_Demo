@@ -15,23 +15,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .comment      0000008e  00000000  00000000  00010098  2**0
                   CONTENTS, READONLY
-  6 .debug_info   0003b150  00000000  00000000  00010126  2**0
+  6 .debug_info   0003b153  00000000  00000000  00010126  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00007206  00000000  00000000  0004b276  2**0
+  7 .debug_abbrev 000071f0  00000000  00000000  0004b279  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    0000ded7  00000000  00000000  0005247c  2**0
+  8 .debug_loc    0000ded7  00000000  00000000  00052469  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 00000d40  00000000  00000000  00060353  2**0
+  9 .debug_aranges 00000d40  00000000  00000000  00060340  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00001280  00000000  00000000  00061093  2**0
+ 10 .debug_ranges 00001280  00000000  00000000  00061080  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  0000f582  00000000  00000000  00062313  2**0
+ 11 .debug_macro  0000f582  00000000  00000000  00062300  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   0001e169  00000000  00000000  00071895  2**0
+ 12 .debug_line   0001e16b  00000000  00000000  00071882  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    000870bf  00000000  00000000  0008f9fe  2**0
+ 13 .debug_str    000870bf  00000000  00000000  0008f9ed  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00002510  00000000  00000000  00116ac0  2**2
+ 14 .debug_frame  00002510  00000000  00000000  00116aac  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -664,7 +664,7 @@ void system_board_init(void)
      2de:	1c18      	adds	r0, r3, #0
      2e0:	4770      	bx	lr
      2e2:	46c0      	nop			; (mov r8, r8)
-     2e4:	20000e54 	.word	0x20000e54
+     2e4:	20000e40 	.word	0x20000e40
 
 000002e8 <extint_chan_enable_callback>:
 
@@ -902,8 +902,8 @@ static inline bool extint_chan_is_detected(
 	}
 }
      386:	bd70      	pop	{r4, r5, r6, pc}
-     388:	20000e50 	.word	0x20000e50
-     38c:	20000e54 	.word	0x20000e54
+     388:	20000e3c 	.word	0x20000e3c
+     38c:	20000e40 	.word	0x20000e40
      390:	40001800 	.word	0x40001800
 
 00000394 <_extint_enable>:
@@ -1041,7 +1041,7 @@ static inline void system_interrupt_enable(
      404:	00001b01 	.word	0x00001b01
      408:	00001a75 	.word	0x00001a75
      40c:	40001800 	.word	0x40001800
-     410:	20000e54 	.word	0x20000e54
+     410:	20000e40 	.word	0x20000e40
      414:	e000e100 	.word	0xe000e100
      418:	00000395 	.word	0x00000395
 
@@ -1352,7 +1352,7 @@ void RTC_Handler(void)
 	_rtc_interrupt_handler(0);
 }
      516:	bd10      	pop	{r4, pc}
-     518:	20000e94 	.word	0x20000e94
+     518:	20000e80 	.word	0x20000e80
 
 0000051c <_sercom_get_sync_baud_val>:
  */
@@ -2260,7 +2260,7 @@ void _sercom_set_handler(
      93c:	20000098 	.word	0x20000098
      940:	2000009c 	.word	0x2000009c
      944:	0000090d 	.word	0x0000090d
-     948:	20000e98 	.word	0x20000e98
+     948:	20000e84 	.word	0x20000e84
 
 0000094c <_sercom_get_interrupt_vector>:
  * \retval SYSTEM_INTERRUPT_MODULE_SERCOM6
@@ -4339,7 +4339,7 @@ enum status_code usart_init(
     104c:	00001bdd 	.word	0x00001bdd
     1050:	0000125d 	.word	0x0000125d
     1054:	00000911 	.word	0x00000911
-    1058:	20000e98 	.word	0x20000e98
+    1058:	20000e84 	.word	0x20000e84
 
 0000105c <usart_write_wait>:
  * \retval STATUS_ERR_DENIED If the transmitter is not enabled
@@ -5453,7 +5453,7 @@ void _usart_interrupt_handler(
 }
     13f0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
     13f2:	46c0      	nop			; (mov r8, r8)
-    13f4:	20000e98 	.word	0x20000e98
+    13f4:	20000e84 	.word	0x20000e84
 
 000013f8 <system_clock_source_get_hz>:
  *
@@ -7863,7 +7863,7 @@ void _tc_interrupt_handler(
 }
     1cb8:	bd38      	pop	{r3, r4, r5, pc}
     1cba:	46c0      	nop			; (mov r8, r8)
-    1cbc:	20000eb0 	.word	0x20000eb0
+    1cbc:	20000e9c 	.word	0x20000e9c
 
 00001cc0 <TC3_Handler>:
 #if (SAML21E) || (SAML21G)
@@ -8777,7 +8777,7 @@ enum status_code tc_init(
     1f7c:	00001cf1 	.word	0x00001cf1
     1f80:	00006098 	.word	0x00006098
     1f84:	00005881 	.word	0x00005881
-    1f88:	20000eb0 	.word	0x20000eb0
+    1f88:	20000e9c 	.word	0x20000e9c
     1f8c:	00001bdd 	.word	0x00001bdd
     1f90:	40000400 	.word	0x40000400
     1f94:	00001b01 	.word	0x00001b01
@@ -9186,8 +9186,8 @@ _read (int file, char * ptr, int len)
     20ea:	4690      	mov	r8, r2
     20ec:	bdf0      	pop	{r4, r5, r6, r7, pc}
     20ee:	46c0      	nop			; (mov r8, r8)
-    20f0:	20000ec4 	.word	0x20000ec4
-    20f4:	20000ebc 	.word	0x20000ebc
+    20f0:	20000eb0 	.word	0x20000eb0
+    20f4:	20000ea8 	.word	0x20000ea8
 
 000020f8 <_write>:
 int __attribute__((weak))
@@ -9267,8 +9267,8 @@ _write (int file, char * ptr, int len)
     213e:	4690      	mov	r8, r2
     2140:	bdf0      	pop	{r4, r5, r6, r7, pc}
     2142:	46c0      	nop			; (mov r8, r8)
-    2144:	20000ec4 	.word	0x20000ec4
-    2148:	20000ec0 	.word	0x20000ec0
+    2144:	20000eb0 	.word	0x20000eb0
+    2148:	20000eac 	.word	0x20000eac
 
 0000214c <_sbrk>:
 extern caddr_t _sbrk(int incr)
@@ -9777,11 +9777,11 @@ static inline void system_interrupt_enable(
     232c:	00040003 	.word	0x00040003
     2330:	00050003 	.word	0x00050003
     2334:	20000170 	.word	0x20000170
-    2338:	20000ec4 	.word	0x20000ec4
+    2338:	20000eb0 	.word	0x20000eb0
     233c:	000021a9 	.word	0x000021a9
-    2340:	20000ec0 	.word	0x20000ec0
+    2340:	20000eac 	.word	0x20000eac
     2344:	0000217d 	.word	0x0000217d
-    2348:	20000ebc 	.word	0x20000ebc
+    2348:	20000ea8 	.word	0x20000ea8
     234c:	42000800 	.word	0x42000800
     2350:	00000d55 	.word	0x00000d55
     2354:	2000006c 	.word	0x2000006c
@@ -10856,7 +10856,7 @@ static void appCommandWaitTimerHandler(SYS_Timer_t *timer)
 	(void)timer;
 }
     2826:	4770      	bx	lr
-    2828:	2000029c 	.word	0x2000029c
+    2828:	20000288 	.word	0x20000288
 
 0000282c <appDataSendingTimerHandler>:
 }
@@ -10887,8 +10887,8 @@ static void appDataSendingTimerHandler(SYS_Timer_t *timer)
 }
     2844:	bd08      	pop	{r3, pc}
     2846:	46c0      	nop			; (mov r8, r8)
-    2848:	2000029c 	.word	0x2000029c
-    284c:	200002a0 	.word	0x200002a0
+    2848:	20000288 	.word	0x20000288
+    284c:	2000028c 	.word	0x2000028c
     2850:	0000473d 	.word	0x0000473d
 
 00002854 <appUartSendMessage>:
@@ -11172,12 +11172,12 @@ static void appDataConf(NWK_DataReq_t *req)
 }
     296e:	bd10      	pop	{r4, pc}
     2970:	41004400 	.word	0x41004400
-    2974:	20000284 	.word	0x20000284
-    2978:	20000270 	.word	0x20000270
+    2974:	20000270 	.word	0x20000270
+    2978:	2000025c 	.word	0x2000025c
     297c:	000046c9 	.word	0x000046c9
     2980:	0000473d 	.word	0x0000473d
-    2984:	20000288 	.word	0x20000288
-    2988:	2000029c 	.word	0x2000029c
+    2984:	20000274 	.word	0x20000274
+    2988:	20000288 	.word	0x20000288
 
 0000298c <UartBytesReceived>:
 #if APP_COORDINATOR || APP_ROUTER  //I added this or router
@@ -11410,7 +11410,7 @@ static void appInit(void)
 	PHY_SetBand(APP_BAND);
 	PHY_SetModulation(APP_MODULATION);
 #endif
-	PHY_SetRxState(true);  //investigate for not routing issue
+	PHY_SetRxState(true);  
     2a98:	2001      	movs	r0, #1
     2a9a:	4b4f      	ldr	r3, [pc, #316]	; (2bd8 <wsndemo_task+0x1f0>)
     2a9c:	4798      	blx	r3
@@ -11531,10 +11531,10 @@ static void appSendData(void)
   //Get state of the on board switch SW0
   uint8_t thisData = 0x46;
     2b0a:	2246      	movs	r2, #70	; 0x46
-  //Read and store the ADC for the temperature sensor
   //uint8_t temperatureData;  //not used on imaging node (probably)
   
-  //UartBytesReceived(APP_RX_BUF_SIZE, *rx_data );  //call UART read function, assign output to var
+  //sio2host_rx(uint8_t *data, uint8_t max_length)  //function in sio2host.c that returns data
+
   
   appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
     2b0c:	4b29      	ldr	r3, [pc, #164]	; (2bb4 <wsndemo_task+0x1cc>)
@@ -11592,7 +11592,7 @@ static void appSendData(void)
 	appNwkDataReq.confirm = appDataConf;
     2b5a:	4a33      	ldr	r2, [pc, #204]	; (2c28 <wsndemo_task+0x240>)
     2b5c:	61a2      	str	r2, [r4, #24]
-	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
+	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));  //putting this stuff after the above fixed the no networking problem
     2b5e:	1c18      	adds	r0, r3, #0
     2b60:	2131      	movs	r1, #49	; 0x31
     2b62:	4b32      	ldr	r3, [pc, #200]	; (2c2c <wsndemo_task+0x244>)
@@ -11667,8 +11667,8 @@ void wsndemo_task(void)
     2ba8:	4699      	mov	r9, r3
     2baa:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
     2bac:	000045e1 	.word	0x000045e1
-    2bb0:	2000029c 	.word	0x2000029c
-    2bb4:	200002b4 	.word	0x200002b4
+    2bb0:	20000288 	.word	0x20000288
+    2bb4:	200002a0 	.word	0x200002a0
     2bb8:	00007999 	.word	0x00007999
     2bbc:	01010100 	.word	0x01010100
     2bc0:	00001234 	.word	0x00001234
@@ -11682,21 +11682,21 @@ void wsndemo_task(void)
     2be0:	00003cbd 	.word	0x00003cbd
     2be4:	000028bd 	.word	0x000028bd
     2be8:	00002cc1 	.word	0x00002cc1
-    2bec:	200002a0 	.word	0x200002a0
+    2bec:	2000028c 	.word	0x2000028c
     2bf0:	0000282d 	.word	0x0000282d
-    2bf4:	20000284 	.word	0x20000284
-    2bf8:	20000270 	.word	0x20000270
+    2bf4:	20000270 	.word	0x20000270
+    2bf8:	2000025c 	.word	0x2000025c
     2bfc:	00002811 	.word	0x00002811
     2c00:	0000473d 	.word	0x0000473d
-    2c04:	20000288 	.word	0x20000288
+    2c04:	20000274 	.word	0x20000274
     2c08:	00002821 	.word	0x00002821
     2c0c:	00004489 	.word	0x00004489
     2c10:	000058a5 	.word	0x000058a5
     2c14:	00002571 	.word	0x00002571
     2c18:	00003099 	.word	0x00003099
     2c1c:	41004400 	.word	0x41004400
-    2c20:	2000023c 	.word	0x2000023c
-    2c24:	20000250 	.word	0x20000250
+    2c20:	20000eb4 	.word	0x20000eb4
+    2c24:	2000023c 	.word	0x2000023c
     2c28:	00002901 	.word	0x00002901
     2c2c:	00002855 	.word	0x00002855
     2c30:	00002d61 	.word	0x00002d61
@@ -11953,7 +11953,7 @@ static void nwkDataReqTxConf(NwkFrame_t *frame)
 }
     2d48:	bd08      	pop	{r3, pc}
     2d4a:	46c0      	nop			; (mov r8, r8)
-    2d4c:	200002e8 	.word	0x200002e8
+    2d4c:	200002d4 	.word	0x200002d4
     2d50:	00002f65 	.word	0x00002f65
 
 00002d54 <nwkDataReqInit>:
@@ -11968,7 +11968,7 @@ void nwkDataReqInit(void)
     2d58:	601a      	str	r2, [r3, #0]
 }
     2d5a:	4770      	bx	lr
-    2d5c:	200002e8 	.word	0x200002e8
+    2d5c:	200002d4 	.word	0x200002d4
 
 00002d60 <NWK_DataReq>:
 *  @brief Adds request @a req to the queue of outgoing requests
@@ -12013,7 +12013,7 @@ void NWK_DataReq(NWK_DataReq_t *req)
     2d88:	4770      	bx	lr
     2d8a:	46c0      	nop			; (mov r8, r8)
     2d8c:	20000ec8 	.word	0x20000ec8
-    2d90:	200002e8 	.word	0x200002e8
+    2d90:	200002d4 	.word	0x200002d4
 
 00002d94 <nwkDataReqTaskHandler>:
 
@@ -12275,7 +12275,7 @@ void nwkDataReqTaskHandler(void)
 }
     2ebc:	bd38      	pop	{r3, r4, r5, pc}
     2ebe:	46c0      	nop			; (mov r8, r8)
-    2ec0:	200002e8 	.word	0x200002e8
+    2ec0:	200002d4 	.word	0x200002d4
     2ec4:	00002ef5 	.word	0x00002ef5
     2ec8:	00002d15 	.word	0x00002d15
     2ecc:	20000ec8 	.word	0x20000ec8
@@ -12310,7 +12310,7 @@ void nwkFrameInit(void)
 }
     2ee8:	4770      	bx	lr
     2eea:	46c0      	nop			; (mov r8, r8)
-    2eec:	200002ec 	.word	0x200002ec
+    2eec:	200002d8 	.word	0x200002d8
     2ef0:	00000582 	.word	0x00000582
 
 00002ef4 <nwkFrameAlloc>:
@@ -12391,7 +12391,7 @@ NwkFrame_t *nwkFrameAlloc(void)
     2f52:	1c20      	adds	r0, r4, #0
     2f54:	bd70      	pop	{r4, r5, r6, pc}
     2f56:	46c0      	nop			; (mov r8, r8)
-    2f58:	200002ec 	.word	0x200002ec
+    2f58:	200002d8 	.word	0x200002d8
     2f5c:	00005893 	.word	0x00005893
     2f60:	20000ec8 	.word	0x20000ec8
 
@@ -12487,7 +12487,7 @@ NwkFrame_t *nwkFrameNext(NwkFrame_t *frame)
 }
     2fac:	4770      	bx	lr
     2fae:	46c0      	nop			; (mov r8, r8)
-    2fb0:	200002ec 	.word	0x200002ec
+    2fb0:	200002d8 	.word	0x200002d8
     2fb4:	00000582 	.word	0x00000582
 
 00002fb8 <nwkFrameCommandInit>:
@@ -12569,7 +12569,7 @@ void nwkRouteInit(void)
 	}
 }
     2ffe:	bdf0      	pop	{r4, r5, r6, r7, pc}
-    3000:	20000870 	.word	0x20000870
+    3000:	2000085c 	.word	0x2000085c
 
 00003004 <NWK_RouteFindEntry>:
 
@@ -12632,7 +12632,7 @@ NWK_RouteTableEntry_t *NWK_RouteFindEntry(uint16_t dst, uint8_t multicast)
     3030:	2000      	movs	r0, #0
 }
     3032:	bd70      	pop	{r4, r5, r6, pc}
-    3034:	20000870 	.word	0x20000870
+    3034:	2000085c 	.word	0x2000085c
 
 00003038 <NWK_RouteNewEntry>:
 
@@ -12714,7 +12714,7 @@ NWK_RouteTableEntry_t *NWK_RouteNewEntry(void)
 	return entry;
 }
     307e:	bd10      	pop	{r4, pc}
-    3080:	20000870 	.word	0x20000870
+    3080:	2000085c 	.word	0x2000085c
 
 00003084 <NWK_RouteFreeEntry>:
 
@@ -12973,7 +12973,7 @@ static void nwkRouteNormalizeRanks(void)
     318e:	46c0      	nop			; (mov r8, r8)
     3190:	0000ffff 	.word	0x0000ffff
     3194:	00003005 	.word	0x00003005
-    3198:	20000870 	.word	0x20000870
+    3198:	2000085c 	.word	0x2000085c
     319c:	00000326 	.word	0x00000326
     31a0:	00003085 	.word	0x00003085
 
@@ -13310,7 +13310,7 @@ static NwkRouteDiscoveryTableEntry_t *nwkRouteDiscoveryFindEntry(uint16_t src,
 }
     3324:	bdf0      	pop	{r4, r5, r6, r7, pc}
     3326:	46c0      	nop			; (mov r8, r8)
-    3328:	20000ba4 	.word	0x20000ba4
+    3328:	20000b90 	.word	0x20000b90
 
 0000332c <nwkRouteDiscoveryNewEntry>:
 
@@ -13386,8 +13386,8 @@ static NwkRouteDiscoveryTableEntry_t *nwkRouteDiscoveryNewEntry(void)
 }
     3370:	1c20      	adds	r0, r4, #0
     3372:	bd10      	pop	{r4, pc}
-    3374:	20000ba4 	.word	0x20000ba4
-    3378:	20000b90 	.word	0x20000b90
+    3374:	20000b90 	.word	0x20000b90
+    3378:	20000b7c 	.word	0x20000b7c
     337c:	0000473d 	.word	0x0000473d
 
 00003380 <nwkRouteDiscoveryTimerHandler>:
@@ -13546,7 +13546,7 @@ static void nwkRouteDiscoveryTimerHandler(SYS_Timer_t *timer)
     3422:	46ab      	mov	fp, r5
     3424:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
     3426:	46c0      	nop			; (mov r8, r8)
-    3428:	20000ba4 	.word	0x20000ba4
+    3428:	20000b90 	.word	0x20000b90
     342c:	20000ec8 	.word	0x20000ec8
     3430:	00004011 	.word	0x00004011
     3434:	00004199 	.word	0x00004199
@@ -13792,8 +13792,8 @@ void nwkRouteDiscoveryInit(void)
 }
     3570:	4770      	bx	lr
     3572:	46c0      	nop			; (mov r8, r8)
-    3574:	20000ba4 	.word	0x20000ba4
-    3578:	20000b90 	.word	0x20000b90
+    3574:	20000b90 	.word	0x20000b90
+    3578:	20000b7c 	.word	0x20000b7c
     357c:	00003381 	.word	0x00003381
 
 00003580 <nwkRouteDiscoveryRequest>:
@@ -14451,7 +14451,7 @@ static void nwkRxDuplicateRejectionTimerHandler(SYS_Timer_t *timer)
 }
     3824:	bd38      	pop	{r3, r4, r5, pc}
     3826:	46c0      	nop			; (mov r8, r8)
-    3828:	20000be0 	.word	0x20000be0
+    3828:	20000bcc 	.word	0x20000bcc
     382c:	0000473d 	.word	0x0000473d
 
 00003830 <nwkRxInit>:
@@ -14502,8 +14502,8 @@ void nwkRxInit(void)
     3858:	4798      	blx	r3
 }
     385a:	bd08      	pop	{r3, pc}
-    385c:	20000be0 	.word	0x20000be0
-    3860:	20000d10 	.word	0x20000d10
+    385c:	20000bcc 	.word	0x20000bcc
+    3860:	20000cfc 	.word	0x20000cfc
     3864:	000037fd 	.word	0x000037fd
     3868:	000037a5 	.word	0x000037a5
     386c:	00002cc1 	.word	0x00002cc1
@@ -14581,7 +14581,7 @@ void NWK_SetAckControl(uint8_t control)
 }
     38c0:	4770      	bx	lr
     38c2:	46c0      	nop			; (mov r8, r8)
-    38c4:	20000d0c 	.word	0x20000d0c
+    38c4:	20000cf8 	.word	0x20000cf8
 
 000038c8 <nwkRxDecryptConf>:
 
@@ -15380,17 +15380,17 @@ void nwkRxTaskHandler(void)
     3c38:	e65a      	b.n	38f0 <nwkRxTaskHandler+0x18>
     3c3a:	e02c      	b.n	3c96 <nwkRxTaskHandler+0x3be>
     3c3c:	00002f79 	.word	0x00002f79
-    3c40:	20000be0 	.word	0x20000be0
+    3c40:	20000bcc 	.word	0x20000bcc
     3c44:	000060e0 	.word	0x000060e0
     3c48:	0000ffff 	.word	0x0000ffff
     3c4c:	20000ec8 	.word	0x20000ec8
     3c50:	00003111 	.word	0x00003111
     3c54:	000030f9 	.word	0x000030f9
-    3c58:	20000d10 	.word	0x20000d10
+    3c58:	20000cfc 	.word	0x20000cfc
     3c5c:	0000473d 	.word	0x0000473d
     3c60:	000040d1 	.word	0x000040d1
     3c64:	00003cd5 	.word	0x00003cd5
-    3c68:	20000d0c 	.word	0x20000d0c
+    3c68:	20000cf8 	.word	0x20000cf8
     3c6c:	ffff0001 	.word	0xffff0001
     3c70:	00002ef5 	.word	0x00002ef5
     3c74:	00002fb9 	.word	0x00002fb9
@@ -15442,8 +15442,8 @@ void nwkSecurityInit(void)
     3cb0:	6013      	str	r3, [r2, #0]
 }
     3cb2:	4770      	bx	lr
-    3cb4:	20000d24 	.word	0x20000d24
-    3cb8:	20000d28 	.word	0x20000d28
+    3cb4:	20000d10 	.word	0x20000d10
+    3cb8:	20000d14 	.word	0x20000d14
 
 00003cbc <NWK_SetSecurityKey>:
 
@@ -15490,7 +15490,7 @@ void nwkSecurityProcess(NwkFrame_t *frame, bool encrypt)
     3ce8:	701a      	strb	r2, [r3, #0]
 }
     3cea:	4770      	bx	lr
-    3cec:	20000d24 	.word	0x20000d24
+    3cec:	20000d10 	.word	0x20000d10
 
 00003cf0 <SYS_EncryptConf>:
 }
@@ -15619,11 +15619,11 @@ void SYS_EncryptConf(void)
     3d82:	4690      	mov	r8, r2
     3d84:	bdf0      	pop	{r4, r5, r6, r7, pc}
     3d86:	46c0      	nop			; (mov r8, r8)
-    3d88:	20000d28 	.word	0x20000d28
-    3d8c:	20000d2c 	.word	0x20000d2c
-    3d90:	20000d2d 	.word	0x20000d2d
-    3d94:	20000d2e 	.word	0x20000d2e
-    3d98:	20000d30 	.word	0x20000d30
+    3d88:	20000d14 	.word	0x20000d14
+    3d8c:	20000d18 	.word	0x20000d18
+    3d90:	20000d19 	.word	0x20000d19
+    3d94:	20000d1a 	.word	0x20000d1a
+    3d98:	20000d1c 	.word	0x20000d1c
 
 00003d9c <nwkSecurityTaskHandler>:
 
@@ -15948,17 +15948,17 @@ static void nwkSecurityStart(void)
     3ef6:	b003      	add	sp, #12
     3ef8:	bd30      	pop	{r4, r5, pc}
     3efa:	46c0      	nop			; (mov r8, r8)
-    3efc:	20000d24 	.word	0x20000d24
-    3f00:	20000d28 	.word	0x20000d28
-    3f04:	20000d2c 	.word	0x20000d2c
-    3f08:	20000d30 	.word	0x20000d30
-    3f0c:	20000d2e 	.word	0x20000d2e
+    3efc:	20000d10 	.word	0x20000d10
+    3f00:	20000d14 	.word	0x20000d14
+    3f04:	20000d18 	.word	0x20000d18
+    3f08:	20000d1c 	.word	0x20000d1c
+    3f0c:	20000d1a 	.word	0x20000d1a
     3f10:	00005881 	.word	0x00005881
     3f14:	000041a5 	.word	0x000041a5
     3f18:	000038c9 	.word	0x000038c9
     3f1c:	20000f10 	.word	0x20000f10
     3f20:	000045fd 	.word	0x000045fd
-    3f24:	20000d2d 	.word	0x20000d2d
+    3f24:	20000d19 	.word	0x20000d19
     3f28:	00002f79 	.word	0x00002f79
 
 00003f2c <nwkTxDelayTimerHandler>:
@@ -16197,10 +16197,10 @@ void nwkTxInit(void)
     3ff8:	611a      	str	r2, [r3, #16]
 }
     3ffa:	4770      	bx	lr
-    3ffc:	20000d54 	.word	0x20000d54
-    4000:	20000d40 	.word	0x20000d40
+    3ffc:	20000d40 	.word	0x20000d40
+    4000:	20000d2c 	.word	0x20000d2c
     4004:	00003f81 	.word	0x00003f81
-    4008:	20000d58 	.word	0x20000d58
+    4008:	20000d44 	.word	0x20000d44
     400c:	00003f2d 	.word	0x00003f2d
 
 00004010 <nwkTxFrame>:
@@ -16613,7 +16613,7 @@ void PHY_DataConf(uint8_t status)
     41e0:	52d1      	strh	r1, [r2, r3]
 }
     41e2:	4770      	bx	lr
-    41e4:	20000d54 	.word	0x20000d54
+    41e4:	20000d40 	.word	0x20000d40
     41e8:	20000ec8 	.word	0x20000ec8
 
 000041ec <nwkTxTaskHandler>:
@@ -16825,12 +16825,12 @@ void nwkTxTaskHandler(void)
     42d0:	00002f79 	.word	0x00002f79
     42d4:	000060f4 	.word	0x000060f4
     42d8:	00003cd5 	.word	0x00003cd5
-    42dc:	20000d58 	.word	0x20000d58
+    42dc:	20000d44 	.word	0x20000d44
     42e0:	0000473d 	.word	0x0000473d
-    42e4:	20000d54 	.word	0x20000d54
+    42e4:	20000d40 	.word	0x20000d40
     42e8:	0000443d 	.word	0x0000443d
     42ec:	20000ec8 	.word	0x20000ec8
-    42f0:	20000d40 	.word	0x20000d40
+    42f0:	20000d2c 	.word	0x20000d2c
     42f4:	00003115 	.word	0x00003115
     42f8:	00002f65 	.word	0x00002f65
 
@@ -16984,7 +16984,7 @@ static uint8_t phyReadRegister(uint8_t reg)
     4356:	46c0      	nop			; (mov r8, r8)
     4358:	000042fd 	.word	0x000042fd
     435c:	00004c75 	.word	0x00004c75
-    4360:	20000ded 	.word	0x20000ded
+    4360:	20000dd9 	.word	0x20000dd9
 
 00004364 <PHY_Init>:
 /*- Implementations --------------------------------------------------------*/
@@ -17077,8 +17077,8 @@ static void phyWriteRegister(uint8_t reg, uint8_t value)
     439e:	bd70      	pop	{r4, r5, r6, pc}
     43a0:	00004b35 	.word	0x00004b35
     43a4:	00004c45 	.word	0x00004c45
-    43a8:	20000ded 	.word	0x20000ded
-    43ac:	20000dec 	.word	0x20000dec
+    43a8:	20000dd9 	.word	0x20000dd9
+    43ac:	20000dd8 	.word	0x20000dd8
     43b0:	00004d6d 	.word	0x00004d6d
     43b4:	00004c75 	.word	0x00004c75
 
@@ -17097,7 +17097,7 @@ void PHY_SetRxState(bool rx)
     43c0:	4798      	blx	r3
 }
     43c2:	bd08      	pop	{r3, pc}
-    43c4:	20000ded 	.word	0x20000ded
+    43c4:	20000dd9 	.word	0x20000dd9
     43c8:	00004339 	.word	0x00004339
 
 000043cc <PHY_SetChannel>:
@@ -17322,7 +17322,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __NOP(void)
     4474:	000042fd 	.word	0x000042fd
     4478:	00004c75 	.word	0x00004c75
     447c:	00004fa9 	.word	0x00004fa9
-    4480:	20000dec 	.word	0x20000dec
+    4480:	20000dd8 	.word	0x20000dd8
     4484:	41004400 	.word	0x41004400
 
 00004488 <PHY_RandomReq>:
@@ -17654,10 +17654,10 @@ static uint8_t phyReadRegister(uint8_t reg)
     459a:	b005      	add	sp, #20
     459c:	bdf0      	pop	{r4, r5, r6, r7, pc}
     459e:	46c0      	nop			; (mov r8, r8)
-    45a0:	20000dec 	.word	0x20000dec
+    45a0:	20000dd8 	.word	0x20000dd8
     45a4:	00004c75 	.word	0x00004c75
     45a8:	00004e69 	.word	0x00004e69
-    45ac:	20000d6c 	.word	0x20000d6c
+    45ac:	20000d58 	.word	0x20000d58
     45b0:	00003871 	.word	0x00003871
     45b4:	00004339 	.word	0x00004339
     45b8:	000041ad 	.word	0x000041ad
@@ -17848,7 +17848,7 @@ static void placeTimer(SYS_Timer_t *timer)
 }
     4664:	bd30      	pop	{r4, r5, pc}
     4666:	46c0      	nop			; (mov r8, r8)
-    4668:	20000df0 	.word	0x20000df0
+    4668:	20000ddc 	.word	0x20000ddc
 
 0000466c <SYS_HwExpiry_Cb>:
 
@@ -17908,7 +17908,7 @@ void SYS_TimerInit(void)
     46b8:	000056c1 	.word	0x000056c1
     46bc:	00002710 	.word	0x00002710
     46c0:	00005655 	.word	0x00005655
-    46c4:	20000df0 	.word	0x20000df0
+    46c4:	20000ddc 	.word	0x20000ddc
 
 000046c8 <SYS_TimerStop>:
 *****************************************************************************/
@@ -17988,7 +17988,7 @@ void SYS_TimerStop(SYS_Timer_t *timer)
 }
     4708:	4770      	bx	lr
     470a:	46c0      	nop			; (mov r8, r8)
-    470c:	20000df0 	.word	0x20000df0
+    470c:	20000ddc 	.word	0x20000ddc
 
 00004710 <SYS_TimerStarted>:
 
@@ -18039,7 +18039,7 @@ bool SYS_TimerStarted(SYS_Timer_t *timer)
 	return false;
 }
     4736:	4770      	bx	lr
-    4738:	20000df0 	.word	0x20000df0
+    4738:	20000ddc 	.word	0x20000ddc
 
 0000473c <SYS_TimerStart>:
 }
@@ -18214,7 +18214,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
     47c2:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
     47c4:	20000f24 	.word	0x20000f24
     47c8:	20000008 	.word	0x20000008
-    47cc:	20000df0 	.word	0x20000df0
+    47cc:	20000ddc 	.word	0x20000ddc
     47d0:	00004611 	.word	0x00004611
 
 000047d4 <tc_cca_callback>:
@@ -18677,9 +18677,9 @@ void sal_aes_wrrd(uint8_t *idata, uint8_t *odata)
 }
     49b4:	bd38      	pop	{r3, r4, r5, pc}
     49b6:	46c0      	nop			; (mov r8, r8)
-    49b8:	20000e18 	.word	0x20000e18
+    49b8:	20000e04 	.word	0x20000e04
     49bc:	00005881 	.word	0x00005881
-    49c0:	20000e2c 	.word	0x20000e2c
+    49c0:	20000e18 	.word	0x20000e18
     49c4:	000053e1 	.word	0x000053e1
     49c8:	0000014d 	.word	0x0000014d
 
@@ -18962,15 +18962,15 @@ bool sal_aes_setup(uint8_t *key,
     4ad6:	4690      	mov	r8, r2
     4ad8:	bdf0      	pop	{r4, r5, r6, r7, pc}
     4ada:	46c0      	nop			; (mov r8, r8)
-    4adc:	20000df4 	.word	0x20000df4
+    4adc:	20000de0 	.word	0x20000de0
     4ae0:	20000009 	.word	0x20000009
-    4ae4:	20000e08 	.word	0x20000e08
+    4ae4:	20000df4 	.word	0x20000df4
     4ae8:	00005881 	.word	0x00005881
-    4aec:	20000e18 	.word	0x20000e18
+    4aec:	20000e04 	.word	0x20000e04
     4af0:	000050cd 	.word	0x000050cd
-    4af4:	20000e2c 	.word	0x20000e2c
+    4af4:	20000e18 	.word	0x20000e18
     4af8:	00004961 	.word	0x00004961
-    4afc:	20000df8 	.word	0x20000df8
+    4afc:	20000de4 	.word	0x20000de4
     4b00:	00005245 	.word	0x00005245
 
 00004b04 <sal_aes_read>:
@@ -19025,7 +19025,7 @@ AT86RFX_ISR()
 }
     4b2a:	bd08      	pop	{r3, pc}
     4b2c:	40001800 	.word	0x40001800
-    4b30:	20000e30 	.word	0x20000e30
+    4b30:	20000e1c 	.word	0x20000e1c
 
 00004b34 <trx_spi_init>:
 
@@ -22473,7 +22473,7 @@ int main(void)
     56a6:	46c0      	nop			; (mov r8, r8)
     56a8:	000047ed 	.word	0x000047ed
     56ac:	20000fc8 	.word	0x20000fc8
-    56b0:	20000e34 	.word	0x20000e34
+    56b0:	20000e20 	.word	0x20000e20
     56b4:	00004801 	.word	0x00004801
     56b8:	00004815 	.word	0x00004815
     56bc:	00004851 	.word	0x00004851
@@ -22489,7 +22489,7 @@ int main(void)
     56ce:	7018      	strb	r0, [r3, #0]
     56d0:	bd08      	pop	{r3, pc}
     56d2:	46c0      	nop			; (mov r8, r8)
-    56d4:	20000e34 	.word	0x20000e34
+    56d4:	20000e20 	.word	0x20000e20
     56d8:	00004869 	.word	0x00004869
     56dc:	20000fc8 	.word	0x20000fc8
 
@@ -22524,7 +22524,7 @@ int main(void)
     5716:	d000      	beq.n	571a <tmr_ovf_callback+0x3a>
     5718:	4798      	blx	r3
     571a:	bd08      	pop	{r3, pc}
-    571c:	20000e34 	.word	0x20000e34
+    571c:	20000e20 	.word	0x20000e20
     5720:	00004815 	.word	0x00004815
     5724:	20000fc8 	.word	0x20000fc8
 
@@ -22540,14 +22540,14 @@ int main(void)
     5738:	bd08      	pop	{r3, pc}
     573a:	46c0      	nop			; (mov r8, r8)
     573c:	00004801 	.word	0x00004801
-    5740:	20000e34 	.word	0x20000e34
+    5740:	20000e20 	.word	0x20000e20
 
 00005744 <set_common_tc_expiry_callback>:
     5744:	4b01      	ldr	r3, [pc, #4]	; (574c <set_common_tc_expiry_callback+0x8>)
     5746:	6118      	str	r0, [r3, #16]
     5748:	4770      	bx	lr
     574a:	46c0      	nop			; (mov r8, r8)
-    574c:	20000e34 	.word	0x20000e34
+    574c:	20000e20 	.word	0x20000e20
 
 00005750 <__aeabi_uidiv>:
     5750:	2900      	cmp	r1, #0
@@ -23405,7 +23405,7 @@ int main(void)
     5e26:	6059      	str	r1, [r3, #4]
     5e28:	bd30      	pop	{r4, r5, pc}
     5e2a:	46c0      	nop			; (mov r8, r8)
-    5e2c:	20000e4c 	.word	0x20000e4c
+    5e2c:	20000e38 	.word	0x20000e38
 
 00005e30 <_malloc_r>:
     5e30:	b570      	push	{r4, r5, r6, lr}
@@ -23485,8 +23485,8 @@ int main(void)
     5eca:	6033      	str	r3, [r6, #0]
     5ecc:	2000      	movs	r0, #0
     5ece:	bd70      	pop	{r4, r5, r6, pc}
-    5ed0:	20000e4c 	.word	0x20000e4c
-    5ed4:	20000e48 	.word	0x20000e48
+    5ed0:	20000e38 	.word	0x20000e38
+    5ed4:	20000e34 	.word	0x20000e34
 
 00005ed8 <_sbrk_r>:
     5ed8:	b538      	push	{r3, r4, r5, lr}
