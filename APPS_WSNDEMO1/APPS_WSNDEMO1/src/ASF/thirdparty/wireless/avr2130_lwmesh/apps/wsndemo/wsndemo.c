@@ -224,7 +224,7 @@ static bool appDataInd(NWK_DataInd_t *ind)
 #endif
 	msg->lqi = ind->lqi;
 	msg->rssi = ind->rssi;
-#if APP_COORDINATOR //|| APP_ROUTER  //I added this or router
+#if APP_COORDINATOR || APP_ROUTER  //I added this or router
 	appUartSendMessage(ind->data, ind->size);
 
 	if (APP_CommandsPending(ind->srcAddr)) {  //investigate
@@ -337,18 +337,10 @@ static void appSendData(void)
   appMsg.sensors.light       =	0x4c;	//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
-#if APP_COORDINATOR || APP_ROUTER  //I added this or router 
+#if APP_COORDINATOR //|| APP_ROUTER  //I added this or router 
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
 	SYS_TimerStart(&appDataSendingTimer);
 	appState = APP_STATE_WAIT_SEND_TIMER;
-	//added all below to try to return networking functionality to router, didn't work
-	appNwkDataReq.dstAddr = 0;
-	appNwkDataReq.dstEndpoint = APP_ENDPOINT;
-	appNwkDataReq.srcEndpoint = APP_ENDPOINT;
-	appNwkDataReq.options = NWK_OPT_ACK_REQUEST | NWK_OPT_ENABLE_SECURITY;
-	appNwkDataReq.data = (uint8_t *)&appMsg;
-	appNwkDataReq.size = sizeof(appMsg);
-	appNwkDataReq.confirm = appDataConf;
 #else
 	appNwkDataReq.dstAddr = 0;
 	appNwkDataReq.dstEndpoint = APP_ENDPOINT;
@@ -357,6 +349,10 @@ static void appSendData(void)
 	appNwkDataReq.data = (uint8_t *)&appMsg;
 	appNwkDataReq.size = sizeof(appMsg);
 	appNwkDataReq.confirm = appDataConf;
+	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
+	SYS_TimerStart(&appDataSendingTimer);
+	appState = APP_STATE_WAIT_SEND_TIMER;
+
 #if (LED_COUNT > 0)
 	LED_On(LED_DATA);
 #endif
