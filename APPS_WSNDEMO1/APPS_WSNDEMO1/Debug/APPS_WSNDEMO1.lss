@@ -10864,7 +10864,7 @@ static void appUartSendMessage(uint8_t *data, uint8_t size)
     2834:	b480      	push	{r7}
     2836:	1c06      	adds	r6, r0, #0
     2838:	1c0d      	adds	r5, r1, #0
-	uint8_t cs = 0;
+	uint8_t cs = 0;   //some kind of counter for error detection on the other end?  
 
 	sio2host_putchar(0x10);
     283a:	2010      	movs	r0, #16
@@ -10888,7 +10888,7 @@ static void appUartSendMessage(uint8_t *data, uint8_t size)
 
 static void appUartSendMessage(uint8_t *data, uint8_t size)
 {
-	uint8_t cs = 0;
+	uint8_t cs = 0;   //some kind of counter for error detection on the other end?  
     2854:	2600      	movs	r6, #0
 		if (data[i] == 0x10) {
 			sio2host_putchar(0x10);
@@ -10924,7 +10924,7 @@ static void appUartSendMessage(uint8_t *data, uint8_t size)
     2870:	18f6      	adds	r6, r6, r3
     2872:	b2f6      	uxtb	r6, r6
     2874:	3401      	adds	r4, #1
-	uint8_t cs = 0;
+	uint8_t cs = 0;   //some kind of counter for error detection on the other end?  
 
 	sio2host_putchar(0x10);
 	sio2host_putchar(0x02);
@@ -10938,7 +10938,7 @@ static void appUartSendMessage(uint8_t *data, uint8_t size)
 
 static void appUartSendMessage(uint8_t *data, uint8_t size)
 {
-	uint8_t cs = 0;
+	uint8_t cs = 0;   //some kind of counter for error detection on the other end?  
     287c:	2600      	movs	r6, #0
 
 		sio2host_putchar(data[i]);
@@ -10952,10 +10952,10 @@ static void appUartSendMessage(uint8_t *data, uint8_t size)
 	sio2host_putchar(0x03);
     2884:	2003      	movs	r0, #3
     2886:	47a0      	blx	r4
-	cs += 0x10 + 0x02 + 0x10 + 0x03;
+	cs += 0x10 + 0x02 + 0x10 + 0x03;  //escape character + 
     2888:	3625      	adds	r6, #37	; 0x25
 
-	sio2host_putchar(cs);
+	sio2host_putchar(cs); //we append this big number to the end, possible checksum value for error detection on the other side of UART
     288a:	b2f0      	uxtb	r0, r6
     288c:	47a0      	blx	r4
 }
