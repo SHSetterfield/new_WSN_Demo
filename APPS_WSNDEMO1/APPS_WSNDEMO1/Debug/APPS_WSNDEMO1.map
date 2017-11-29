@@ -10974,7 +10974,7 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .comment       0x0000005b       0x33 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
                                  0x34 (size before relaxing)
 
-.debug_info     0x00000000    0x3cf0d
+.debug_info     0x00000000    0x3cf0b
  .debug_info    0x00000000      0x269 src/ASF/common2/services/delay/sam0/systick_counter.o
  .debug_info    0x00000269      0x1ec src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_info    0x00000455     0x14c4 src/ASF/sam0/boards/samr21_xplained_pro/board_init.o
@@ -11000,24 +11000,24 @@ OUTPUT(APPS_WSNDEMO1.elf elf32-littlearm)
  .debug_info    0x00022a02      0x427 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
  .debug_info    0x00022e29     0x3974 src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.o
  .debug_info    0x0002679d     0x1ce1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.o
- .debug_info    0x0002847e     0x3da1 src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
- .debug_info    0x0002c21f      0x4eb src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
- .debug_info    0x0002c70a      0x807 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
- .debug_info    0x0002cf11      0x65b src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
- .debug_info    0x0002d56c      0xaa0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
- .debug_info    0x0002e00c      0xd17 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
- .debug_info    0x0002ed23      0xc33 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
- .debug_info    0x0002f956      0x7d7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
- .debug_info    0x0003012d      0xa1a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
- .debug_info    0x00030b47     0x153a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
- .debug_info    0x00032081      0xaa1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
- .debug_info    0x00032b22      0x10a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
- .debug_info    0x00032c2c      0x549 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
- .debug_info    0x00033175     0x1c9d src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
- .debug_info    0x00034e12      0x517 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
- .debug_info    0x00035329     0x6e34 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
- .debug_info    0x0003c15d      0xaa8 src/main.o
- .debug_info    0x0003cc05      0x308 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
+ .debug_info    0x0002847e     0x3d9f src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.o
+ .debug_info    0x0002c21d      0x4eb src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwk.o
+ .debug_info    0x0002c708      0x807 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkDataReq.o
+ .debug_info    0x0002cf0f      0x65b src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkFrame.o
+ .debug_info    0x0002d56a      0xaa0 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRoute.o
+ .debug_info    0x0002e00a      0xd17 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRouteDiscovery.o
+ .debug_info    0x0002ed21      0xc33 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkRx.o
+ .debug_info    0x0002f954      0x7d7 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkSecurity.o
+ .debug_info    0x0003012b      0xa1a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/src/nwkTx.o
+ .debug_info    0x00030b45     0x153a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/phy/at86rf233/src/phy.o
+ .debug_info    0x0003207f      0xaa1 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sys.o
+ .debug_info    0x00032b20      0x10a src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysEncrypt.o
+ .debug_info    0x00032c2a      0x549 src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/src/sysTimer.o
+ .debug_info    0x00033173     0x1c9d src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.o
+ .debug_info    0x00034e10      0x517 src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.o
+ .debug_info    0x00035327     0x6e34 src/ASF/thirdparty/wireless/services/trx_access/trx_access.o
+ .debug_info    0x0003c15b      0xaa8 src/main.o
+ .debug_info    0x0003cc03      0x308 ../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib\libsam0_lib_hw_timer.a(common_hw_timer.o)
 
 .debug_abbrev   0x00000000     0x7257
  .debug_abbrev  0x00000000      0x13c src/ASF/common2/services/delay/sam0/systick_counter.o

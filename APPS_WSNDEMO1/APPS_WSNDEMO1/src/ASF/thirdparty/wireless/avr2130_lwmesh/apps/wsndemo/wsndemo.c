@@ -354,7 +354,7 @@ static void appSendData(void)
   
   appMsg.sensors.battery     =	switchData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
   appMsg.sensors.temperature =	0x42;//resultADC;//T for temp //rand() & 0x7f;
-  appMsg.sensors.light       =	read_adc();//L for light //rand() & 0xff;
+  appMsg.sensors.light       =	0x53;//S to indicate position of sensor data in array//read_adc();//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
 #if APP_COORDINATOR

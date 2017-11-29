@@ -15,21 +15,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .comment      0000008e  00000000  00000000  000100a0  2**0
                   CONTENTS, READONLY
-  6 .debug_info   0003cf0d  00000000  00000000  0001012e  2**0
+  6 .debug_info   0003cf0b  00000000  00000000  0001012e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00007257  00000000  00000000  0004d03b  2**0
+  7 .debug_abbrev 00007257  00000000  00000000  0004d039  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    0000de03  00000000  00000000  00054292  2**0
+  8 .debug_loc    0000de03  00000000  00000000  00054290  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 00000d58  00000000  00000000  00062095  2**0
+  9 .debug_aranges 00000d58  00000000  00000000  00062093  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00001298  00000000  00000000  00062ded  2**0
+ 10 .debug_ranges 00001298  00000000  00000000  00062deb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  0000f582  00000000  00000000  00064085  2**0
+ 11 .debug_macro  0000f582  00000000  00000000  00064083  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   0001e179  00000000  00000000  00073607  2**0
+ 12 .debug_line   0001e179  00000000  00000000  00073605  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00087323  00000000  00000000  00091780  2**0
+ 13 .debug_str    00087323  00000000  00000000  0009177e  2**0
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_frame  00002544  00000000  00000000  00118aa4  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -11362,8 +11362,8 @@ static void APP_TaskHandler(void)
     2a68:	d003      	beq.n	2a72 <wsndemo_task+0x1a>
     2a6a:	2b03      	cmp	r3, #3
     2a6c:	d100      	bne.n	2a70 <wsndemo_task+0x18>
-    2a6e:	e099      	b.n	2ba4 <wsndemo_task+0x14c>
-    2a70:	e09e      	b.n	2bb0 <wsndemo_task+0x158>
+    2a6e:	e098      	b.n	2ba2 <wsndemo_task+0x14a>
+    2a70:	e09d      	b.n	2bae <wsndemo_task+0x156>
 
 /*************************************************************************//**
 *****************************************************************************/
@@ -11521,7 +11521,7 @@ static void appInit(void)
 	appState = APP_STATE_SEND;
     2b2c:	4b26      	ldr	r3, [pc, #152]	; (2bc8 <wsndemo_task+0x170>)
     2b2e:	701c      	strb	r4, [r3, #0]
-    2b30:	e03e      	b.n	2bb0 <wsndemo_task+0x158>
+    2b30:	e03d      	b.n	2bae <wsndemo_task+0x156>
 /*****************************************************************************
 *****************************************************************************/
 static void appSendData(void)
@@ -11550,7 +11550,7 @@ static void appSendData(void)
   pinRead = port_pin_get_input_level(BUTTON_0_PIN);
   if(pinRead==false){
 	  switchData = 0x54;
-    2b46:	2554      	movs	r5, #84	; 0x54
+    2b46:	2454      	movs	r4, #84	; 0x54
   
   //Get state of the on board switch SW0
   uint8_t switchData = 0x46;
@@ -11565,102 +11565,102 @@ static void appSendData(void)
   
   //Get state of the on board switch SW0
   uint8_t switchData = 0x46;
-    2b4c:	2546      	movs	r5, #70	; 0x46
+    2b4c:	2446      	movs	r4, #70	; 0x46
 	  switchData = 0x54;
   }
   //Read and store the ADC for the temperature sensor
   //uint8_t temperatureData;
   
   resultADC = read_adc();
-    2b4e:	4f33      	ldr	r7, [pc, #204]	; (2c1c <wsndemo_task+0x1c4>)
-    2b50:	47b8      	blx	r7
+    2b4e:	4b33      	ldr	r3, [pc, #204]	; (2c1c <wsndemo_task+0x1c4>)
+    2b50:	4798      	blx	r3
     2b52:	b2c0      	uxtb	r0, r0
     2b54:	4b32      	ldr	r3, [pc, #200]	; (2c20 <wsndemo_task+0x1c8>)
     2b56:	7018      	strb	r0, [r3, #0]
   
   appMsg.sensors.battery     =	switchData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
-    2b58:	4c1c      	ldr	r4, [pc, #112]	; (2bcc <wsndemo_task+0x174>)
-    2b5a:	022b      	lsls	r3, r5, #8
-    2b5c:	26ff      	movs	r6, #255	; 0xff
-    2b5e:	7f22      	ldrb	r2, [r4, #28]
-    2b60:	4313      	orrs	r3, r2
-    2b62:	61e3      	str	r3, [r4, #28]
-    2b64:	0e2d      	lsrs	r5, r5, #24
-    2b66:	2320      	movs	r3, #32
-    2b68:	54e5      	strb	r5, [r4, r3]
+    2b58:	481c      	ldr	r0, [pc, #112]	; (2bcc <wsndemo_task+0x174>)
+    2b5a:	0222      	lsls	r2, r4, #8
+    2b5c:	23ff      	movs	r3, #255	; 0xff
+    2b5e:	7f01      	ldrb	r1, [r0, #28]
+    2b60:	430a      	orrs	r2, r1
+    2b62:	61c2      	str	r2, [r0, #28]
+    2b64:	0e24      	lsrs	r4, r4, #24
+    2b66:	2220      	movs	r2, #32
+    2b68:	5484      	strb	r4, [r0, r2]
   appMsg.sensors.temperature =	0x42;//resultADC;//T for temp //rand() & 0x7f;
-    2b6a:	6a22      	ldr	r2, [r4, #32]
-    2b6c:	4032      	ands	r2, r6
-    2b6e:	2384      	movs	r3, #132	; 0x84
-    2b70:	01db      	lsls	r3, r3, #7
-    2b72:	4313      	orrs	r3, r2
-    2b74:	6223      	str	r3, [r4, #32]
-    2b76:	2200      	movs	r2, #0
-    2b78:	2324      	movs	r3, #36	; 0x24
-    2b7a:	54e2      	strb	r2, [r4, r3]
-  appMsg.sensors.light       =	read_adc();//L for light //rand() & 0xff;
-    2b7c:	47b8      	blx	r7
-    2b7e:	0203      	lsls	r3, r0, #8
-    2b80:	6a62      	ldr	r2, [r4, #36]	; 0x24
-    2b82:	4016      	ands	r6, r2
-    2b84:	431e      	orrs	r6, r3
-    2b86:	6266      	str	r6, [r4, #36]	; 0x24
-    2b88:	0e00      	lsrs	r0, r0, #24
+    2b6a:	6a01      	ldr	r1, [r0, #32]
+    2b6c:	4019      	ands	r1, r3
+    2b6e:	2284      	movs	r2, #132	; 0x84
+    2b70:	01d2      	lsls	r2, r2, #7
+    2b72:	430a      	orrs	r2, r1
+    2b74:	6202      	str	r2, [r0, #32]
+    2b76:	2100      	movs	r1, #0
+    2b78:	2224      	movs	r2, #36	; 0x24
+    2b7a:	5481      	strb	r1, [r0, r2]
+  appMsg.sensors.light       =	0x53;//S to indicate position of sensor data in array//read_adc();//L for light //rand() & 0xff;
+    2b7c:	6a42      	ldr	r2, [r0, #36]	; 0x24
+    2b7e:	4013      	ands	r3, r2
+    2b80:	22a6      	movs	r2, #166	; 0xa6
+    2b82:	01d2      	lsls	r2, r2, #7
+    2b84:	4313      	orrs	r3, r2
+    2b86:	6243      	str	r3, [r0, #36]	; 0x24
+    2b88:	2200      	movs	r2, #0
     2b8a:	2328      	movs	r3, #40	; 0x28
-    2b8c:	54e0      	strb	r0, [r4, r3]
+    2b8c:	54c2      	strb	r2, [r0, r3]
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
 #if APP_COORDINATOR
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
-    2b8e:	1c20      	adds	r0, r4, #0
-    2b90:	2136      	movs	r1, #54	; 0x36
-    2b92:	4b24      	ldr	r3, [pc, #144]	; (2c24 <wsndemo_task+0x1cc>)
-    2b94:	4798      	blx	r3
+    2b8e:	2136      	movs	r1, #54	; 0x36
+    2b90:	4b24      	ldr	r3, [pc, #144]	; (2c24 <wsndemo_task+0x1cc>)
+    2b92:	4798      	blx	r3
 	SYS_TimerStart(&appDataSendingTimer);
-    2b96:	481a      	ldr	r0, [pc, #104]	; (2c00 <wsndemo_task+0x1a8>)
-    2b98:	4b23      	ldr	r3, [pc, #140]	; (2c28 <wsndemo_task+0x1d0>)
-    2b9a:	4798      	blx	r3
+    2b94:	481a      	ldr	r0, [pc, #104]	; (2c00 <wsndemo_task+0x1a8>)
+    2b96:	4b24      	ldr	r3, [pc, #144]	; (2c28 <wsndemo_task+0x1d0>)
+    2b98:	4798      	blx	r3
 	appState = APP_STATE_WAIT_SEND_TIMER;
-    2b9c:	2204      	movs	r2, #4
-    2b9e:	4b0a      	ldr	r3, [pc, #40]	; (2bc8 <wsndemo_task+0x170>)
-    2ba0:	701a      	strb	r2, [r3, #0]
-    2ba2:	e005      	b.n	2bb0 <wsndemo_task+0x158>
+    2b9a:	2204      	movs	r2, #4
+    2b9c:	4b0a      	ldr	r3, [pc, #40]	; (2bc8 <wsndemo_task+0x170>)
+    2b9e:	701a      	strb	r2, [r3, #0]
+    2ba0:	e005      	b.n	2bae <wsndemo_task+0x156>
 	case APP_STATE_SENDING_DONE:
 	{
 #if APP_ENDDEVICE
 		appState = APP_STATE_PREPARE_TO_SLEEP;
 #else
 		SYS_TimerStart(&appDataSendingTimer);
-    2ba4:	4816      	ldr	r0, [pc, #88]	; (2c00 <wsndemo_task+0x1a8>)
-    2ba6:	4b20      	ldr	r3, [pc, #128]	; (2c28 <wsndemo_task+0x1d0>)
-    2ba8:	4798      	blx	r3
+    2ba2:	4817      	ldr	r0, [pc, #92]	; (2c00 <wsndemo_task+0x1a8>)
+    2ba4:	4b20      	ldr	r3, [pc, #128]	; (2c28 <wsndemo_task+0x1d0>)
+    2ba6:	4798      	blx	r3
 		appState = APP_STATE_WAIT_SEND_TIMER;
-    2baa:	2204      	movs	r2, #4
-    2bac:	4b06      	ldr	r3, [pc, #24]	; (2bc8 <wsndemo_task+0x170>)
-    2bae:	701a      	strb	r2, [r3, #0]
+    2ba8:	2204      	movs	r2, #4
+    2baa:	4b07      	ldr	r3, [pc, #28]	; (2bc8 <wsndemo_task+0x170>)
+    2bac:	701a      	strb	r2, [r3, #0]
 		break;
 	}
 
 #if (APP_COORDINATOR)
 	uint16_t bytes;
 	if ((bytes = sio2host_rx(rx_data, APP_RX_BUF_SIZE)) > 0) {
-    2bb0:	481e      	ldr	r0, [pc, #120]	; (2c2c <wsndemo_task+0x1d4>)
-    2bb2:	2114      	movs	r1, #20
-    2bb4:	4b1e      	ldr	r3, [pc, #120]	; (2c30 <wsndemo_task+0x1d8>)
-    2bb6:	4798      	blx	r3
-    2bb8:	2800      	cmp	r0, #0
-    2bba:	d002      	beq.n	2bc2 <wsndemo_task+0x16a>
+    2bae:	481f      	ldr	r0, [pc, #124]	; (2c2c <wsndemo_task+0x1d4>)
+    2bb0:	2114      	movs	r1, #20
+    2bb2:	4b1f      	ldr	r3, [pc, #124]	; (2c30 <wsndemo_task+0x1d8>)
+    2bb4:	4798      	blx	r3
+    2bb6:	2800      	cmp	r0, #0
+    2bb8:	d002      	beq.n	2bc0 <wsndemo_task+0x168>
 		UartBytesReceived(bytes, (uint8_t *)&rx_data);
-    2bbc:	491b      	ldr	r1, [pc, #108]	; (2c2c <wsndemo_task+0x1d4>)
-    2bbe:	4b1d      	ldr	r3, [pc, #116]	; (2c34 <wsndemo_task+0x1dc>)
-    2bc0:	4798      	blx	r3
+    2bba:	491c      	ldr	r1, [pc, #112]	; (2c2c <wsndemo_task+0x1d4>)
+    2bbc:	4b1d      	ldr	r3, [pc, #116]	; (2c34 <wsndemo_task+0x1dc>)
+    2bbe:	4798      	blx	r3
 void wsndemo_task(void)
 {
 	//resultADC = read_adc();
 	SYS_TaskHandler();
 	APP_TaskHandler();
 }
-    2bc2:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+    2bc0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+    2bc2:	46c0      	nop			; (mov r8, r8)
     2bc4:	000045dd 	.word	0x000045dd
     2bc8:	2000025c 	.word	0x2000025c
     2bcc:	20000274 	.word	0x20000274
