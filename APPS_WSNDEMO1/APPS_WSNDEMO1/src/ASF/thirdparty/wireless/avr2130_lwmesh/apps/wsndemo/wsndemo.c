@@ -90,7 +90,7 @@
 #include "sleep_mgr.h"
 #endif
 #include "commands.h"
-#if APP_COORDINATOR || APP_ROUTER
+#if APP_COORDINATOR || APP_ROUTER  //I added this "or router"
 #include "sio2host.h"
 #endif
 #if SAMD || SAMR21
@@ -162,7 +162,7 @@ static SYS_Timer_t appCommandWaitTimer;
 static bool appNetworkStatus;
 #endif
 
-#if APP_COORDINATOR || APP_ROUTER
+#if APP_COORDINATOR || APP_ROUTER  //I added this or router logic
 static uint8_t rx_data[APP_RX_BUF_SIZE];
 #endif
 
@@ -177,7 +177,7 @@ void UartBytesReceived(uint16_t bytes, uint8_t *byte );
 
 /*- Implementations --------------------------------------------------------*/
 
-#if APP_COORDINATOR || APP_ROUTER
+#if APP_COORDINATOR || APP_ROUTER  //I added this or router
 
 /*****************************************************************************
 *****************************************************************************/
@@ -224,10 +224,10 @@ static bool appDataInd(NWK_DataInd_t *ind)
 #endif
 	msg->lqi = ind->lqi;
 	msg->rssi = ind->rssi;
-#if APP_COORDINATOR || APP_ROUTER
+#if APP_COORDINATOR //|| APP_ROUTER  //I added this or router
 	appUartSendMessage(ind->data, ind->size);
 
-	if (APP_CommandsPending(ind->srcAddr)) {
+	if (APP_CommandsPending(ind->srcAddr)) {  //investigate
 		NWK_SetAckControl(APP_COMMAND_PENDING);
 	}
 #endif
@@ -337,7 +337,7 @@ static void appSendData(void)
   appMsg.sensors.light       =	0x4c;	//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
-#if APP_COORDINATOR || APP_ROUTER
+#if APP_COORDINATOR || APP_ROUTER  //I added this or router 
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));
 	SYS_TimerStart(&appDataSendingTimer);
 	appState = APP_STATE_WAIT_SEND_TIMER;
@@ -399,7 +399,7 @@ static void appInit(void)
 	PHY_SetBand(APP_BAND);
 	PHY_SetModulation(APP_MODULATION);
 #endif
-	PHY_SetRxState(true);
+	PHY_SetRxState(true);  //investigate for not routing issue
 
 #ifdef NWK_ENABLE_SECURITY
 	NWK_SetSecurityKey((uint8_t *)APP_SECURITY_KEY);
@@ -526,7 +526,7 @@ void wsndemo_init(void)
 	port_pin_set_config(LED_0_PIN, &config_port_pin);
 	////////////////////////////////////////////////
 	
-#if APP_ENDDEVICE //|| APP_ROUTER  //ADDED ROUTER
+#if APP_ENDDEVICE 
 	sm_init();
 #endif
 #if APP_COORDINATOR || APP_ROUTER  //added ROUTER
