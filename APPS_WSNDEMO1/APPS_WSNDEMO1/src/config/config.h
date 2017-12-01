@@ -92,7 +92,7 @@
 #define APP_ROUTER      0
 #define APP_ENDDEVICE   0
 #elif APP_ADDR < 0x8000
-#define APP_CAPTION     "Router"
+#define APP_CAPTION     "Imaging"
 #define APP_NODE_TYPE   1
 #define APP_COORDINATOR 0
 #define APP_ROUTER      1

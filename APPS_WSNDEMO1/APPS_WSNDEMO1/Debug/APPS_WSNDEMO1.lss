@@ -29,9 +29,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_line   0001e16b  00000000  00000000  00071882  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    000870bf  00000000  00000000  0008f9ed  2**0
+ 13 .debug_str    000870c0  00000000  00000000  0008f9ed  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00002510  00000000  00000000  00116aac  2**2
+ 14 .debug_frame  00002510  00000000  00000000  00116ab0  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -11383,14 +11383,14 @@ static void appInit(void)
     2a70:	464a      	mov	r2, r9
     2a72:	545a      	strb	r2, [r3, r1]
 	appMsg.caption.size         = APP_CAPTION_SIZE;
-    2a74:	2106      	movs	r1, #6
+    2a74:	2107      	movs	r1, #7
     2a76:	222a      	movs	r2, #42	; 0x2a
     2a78:	5499      	strb	r1, [r3, r2]
 	memcpy(appMsg.caption.text, APP_CAPTION, APP_CAPTION_SIZE);
     2a7a:	1c18      	adds	r0, r3, #0
     2a7c:	302b      	adds	r0, #43	; 0x2b
     2a7e:	4951      	ldr	r1, [pc, #324]	; (2bc4 <wsndemo_task+0x1dc>)
-    2a80:	2206      	movs	r2, #6
+    2a80:	2207      	movs	r2, #7
     2a82:	4b51      	ldr	r3, [pc, #324]	; (2bc8 <wsndemo_task+0x1e0>)
     2a84:	4798      	blx	r3
 
@@ -11587,14 +11587,14 @@ static void appSendData(void)
 	appNwkDataReq.data = (uint8_t *)&appMsg;
     2b54:	6123      	str	r3, [r4, #16]
 	appNwkDataReq.size = sizeof(appMsg);
-    2b56:	2231      	movs	r2, #49	; 0x31
+    2b56:	2232      	movs	r2, #50	; 0x32
     2b58:	7522      	strb	r2, [r4, #20]
 	appNwkDataReq.confirm = appDataConf;
     2b5a:	4a33      	ldr	r2, [pc, #204]	; (2c28 <wsndemo_task+0x240>)
     2b5c:	61a2      	str	r2, [r4, #24]
 	appUartSendMessage((uint8_t *)&appMsg, sizeof(appMsg));  //putting this stuff after the above fixed the no networking problem
     2b5e:	1c18      	adds	r0, r3, #0
-    2b60:	2131      	movs	r1, #49	; 0x31
+    2b60:	2132      	movs	r1, #50	; 0x32
     2b62:	4b32      	ldr	r3, [pc, #200]	; (2c2c <wsndemo_task+0x244>)
     2b64:	4798      	blx	r3
 	SYS_TimerStart(&appDataSendingTimer);
@@ -23696,8 +23696,8 @@ int main(void)
     60b8:	00002690 	.word	0x00002690
     60bc:	000026c2 	.word	0x000026c2
     60c0:	00002704 	.word	0x00002704
-    60c4:	74756f52 	.word	0x74756f52
-    60c8:	00007265 	.word	0x00007265
+    60c4:	67616d49 	.word	0x67616d49
+    60c8:	00676e69 	.word	0x00676e69
     60cc:	74736554 	.word	0x74736554
     60d0:	75636553 	.word	0x75636553
     60d4:	79746972 	.word	0x79746972
