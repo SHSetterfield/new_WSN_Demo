@@ -112,7 +112,6 @@ src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/wsndemo.d \
  ../src/ASF/thirdparty/wireless/avr2130_lwmesh/source/nwk/inc/nwkDataReq.h \
  ../src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/inc/sysTimer.h \
  ../src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.h \
- ../src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.h \
  ../src/ASF/sam0/drivers/system/system.h \
  ../src/ASF/sam0/drivers/system/clock/clock.h \
  ../src/ASF/sam0/drivers/system/clock/gclk.h \
@@ -374,8 +373,6 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\arm\ gcc\native\4.8.1443\arm-gnu
 ../src/ASF/thirdparty/wireless/avr2130_lwmesh/source/sys/inc/sysTimer.h:
 
 ../src/ASF/thirdparty/wireless/avr2130_lwmesh/apps/wsndemo/commands.h:
-
-../src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.h:
 
 ../src/ASF/sam0/drivers/system/system.h:
 
