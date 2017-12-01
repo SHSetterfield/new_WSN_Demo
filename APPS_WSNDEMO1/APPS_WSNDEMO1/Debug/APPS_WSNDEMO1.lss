@@ -11362,10 +11362,10 @@ static void appSendData(void)
     2a3a:	0e1b      	lsrs	r3, r3, #24
     2a3c:	2120      	movs	r1, #32
     2a3e:	5443      	strb	r3, [r0, r1]
-  appMsg.sensors.temperature =	0x54;//T for temp //rand() & 0x7f;
+  appMsg.sensors.temperature =	0x42;//B for battery //rand() & 0x7f;
     2a40:	6a01      	ldr	r1, [r0, #32]
     2a42:	4011      	ands	r1, r2
-    2a44:	23a8      	movs	r3, #168	; 0xa8
+    2a44:	2384      	movs	r3, #132	; 0x84
     2a46:	01db      	lsls	r3, r3, #7
     2a48:	430b      	orrs	r3, r1
     2a4a:	6203      	str	r3, [r0, #32]

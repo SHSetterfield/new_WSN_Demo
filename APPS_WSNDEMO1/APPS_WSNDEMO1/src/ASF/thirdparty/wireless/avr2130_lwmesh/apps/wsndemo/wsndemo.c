@@ -332,7 +332,7 @@ static void appSendData(void)
   
   
   appMsg.sensors.battery     =	thisData; //thisData;		//0x42;//B for battery //rand() & 0xffff;
-  appMsg.sensors.temperature =	0x54;//T for temp //rand() & 0x7f;
+  appMsg.sensors.temperature =	0x42;//B for battery //rand() & 0x7f;
   appMsg.sensors.light       =	0x4c;//L for light //rand() & 0xff;
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ //
 
